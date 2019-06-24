@@ -21,6 +21,10 @@ public class UserController {
     }
     
     //Add
+    public void AddUser(String nickname, String password ){
+        System.out.println("build......");
+    }
+     
     
     //Read
     
