@@ -21,6 +21,10 @@ public class FakeDB {
         return instance;
     }
     
+    /**
+     *@see DataDummy
+     */
+    
     public void RegisterUsers(){
     
         UserController.getInstance().AddUser("pablo", "12345");
