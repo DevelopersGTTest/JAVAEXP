@@ -27,7 +27,7 @@ public class FakeDB {
     
     public void RegisterUsers(){
     
-        UserController.getInstance().AddUser("pablo", "12345");
+        //UserController.getInstance().AddUser("pablo", "12345");
     }
     
     

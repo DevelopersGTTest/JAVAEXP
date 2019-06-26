@@ -15,15 +15,15 @@ public class UserController {
     private ArrayList<User> userArray = new ArrayList<User>();
     
     public static UserController getInstance(){
-    if( instance == null ){
-        instance = new UserController();
-    }
-       return instance;
+        if( instance == null ){
+            instance = new UserController();
+        }
+        return instance;
     }
     
     //Add
-    public void AddUser(String nickname, String password ){
-        this.userArray.add(new User(null, nickname, password ));
+    public void AddUser(Integer idUser, String nickname, String password ){
+            this.userArray.add(new User(idUser, nickname, password ));
     }
      
     //Read
