@@ -46,11 +46,25 @@ public class UserController {
             if(i == idUser){
                 userArray.get(i).setNickname(nickname);
                 userArray.get(i).setPassword(password);
+                break;
             }
         }
     }
     
     //Delete
+    public void DeleteUser(Integer idUser ){
+        try{
+            for(int i=0; i< userArray.size(); i++ ){
+                if( i == idUser){
+                    userArray.remove(i);
+                    break;
+                }
+            }
+    
+        }catch(ArrayIndexOutOfBoundsException e ){
+            System.out.println("Incorrect Index!!!" + e );
+        }
+    }
     
     //Search
     
