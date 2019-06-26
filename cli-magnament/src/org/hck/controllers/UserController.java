@@ -41,6 +41,14 @@ public class UserController {
 
     
     //Update
+    public void UpdateUser(Integer idUser, String nickname, String password){
+        for(int i=0; i < userArray.size(); i ++){
+            if(i == idUser){
+                userArray.get(i).setNickname(nickname);
+                userArray.get(i).setPassword(password);
+            }
+        }
+    }
     
     //Delete
     
