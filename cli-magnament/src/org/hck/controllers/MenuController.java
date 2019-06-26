@@ -5,6 +5,7 @@
  */
 package org.hck.controllers;
 import org.hck.utils.ReadIO;
+import org.hck.utils.FakeDB;
 /**
  *
  * @author Hackobo
@@ -44,6 +45,9 @@ public class MenuController {
         this.password = read.IOData();*/
         //UserController.getInstance().AddUser("sam", "hackobo" );
         //UserController.getInstance().AddUser("pablo", "hck2");
+        //Mapping dummy data
+        FakeDB.getInstance().RegisterUsers();
+        
         do{
             
             System.out.println(" 1 . saving  ");

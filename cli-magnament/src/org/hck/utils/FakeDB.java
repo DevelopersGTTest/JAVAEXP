@@ -12,6 +12,7 @@ import org.hck.controllers.UserController;
  */
 public class FakeDB {
     private static FakeDB instance;
+    private int index = 1;
     
     public static FakeDB getInstance(){
     
@@ -26,8 +27,9 @@ public class FakeDB {
      */
     
     public void RegisterUsers(){
-    
-        //UserController.getInstance().AddUser("pablo", "12345");
+        UserController.getInstance().AddUser(this.index++, "Hackobo", "123hck");
+        UserController.getInstance().AddUser(this.index++, "samuel", "zero123");
+        UserController.getInstance().AddUser(this.index++, "nevitz", "nevtz");
     }
     
     
