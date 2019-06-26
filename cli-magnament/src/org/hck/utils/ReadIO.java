@@ -16,7 +16,7 @@ import java.util.logging.Logger;
  * @author Hackobo
  */
 public class ReadIO {
-    
+   
     public String IOData(){
         String term = null;
         
