@@ -12,7 +12,7 @@ import org.hck.utils.FakeDB;
  */
 public class MenuController {
     private static MenuController instance;
-    ReadIO read = new ReadIO();
+   // ReadIO read = new ReadIO();
     String username = "";
     String password = "";
     int op, numb, idx = 0;
@@ -54,15 +54,15 @@ public class MenuController {
             System.out.println(" 2 . reading  ");
             System.out.println(" 3 . updating  ");
             System.out.println(" 4 . deleting  ");
-            this.numb = Integer.parseInt( read.IOData());
+            this.numb = Integer.parseInt( ReadIO.getInstance().IOData() );
             switch( this.numb ){
                 
                 case 1:
                     
                     System.out.println("ingrese nick");
-                    this.username = read.IOData();
+                    this.username = ReadIO.getInstance().IOData();
                     System.out.println("ingrese pass");
-                    this.password = read.IOData();
+                    this.password = ReadIO.getInstance().IOData();
                
                     UserController.getInstance().AddUser(this.idx++, this.username, this.password);
                     
@@ -77,7 +77,7 @@ public class MenuController {
                 break;
                 case 4:
                     System.out.println("Escribe el numero a eliminar");
-                    this.idx = Integer.parseInt( read.IOData() );
+                    this.idx = Integer.parseInt( ReadIO.getInstance().IOData() );
                     UserController.getInstance().DeleteUser( this.idx );
                 break;
                         

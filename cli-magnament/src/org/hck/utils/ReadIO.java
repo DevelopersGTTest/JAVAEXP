@@ -16,6 +16,14 @@ import java.util.logging.Logger;
  * @author Hackobo
  */
 public class ReadIO {
+    private static ReadIO instance;
+    
+    public static ReadIO getInstance(){
+        if( instance == null){
+            instance = new ReadIO();
+        }
+        return instance;
+    }
    
     public String IOData(){
         String term = null;
