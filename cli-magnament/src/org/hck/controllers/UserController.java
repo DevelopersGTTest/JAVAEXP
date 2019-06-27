@@ -68,13 +68,17 @@ public class UserController {
     }
     
     //Search
-    public Boolean Login(String username, Integer password){
+    public void Login(String username, String password){
         for(int i =0; i< userArray.size(); i++  ){
-            if( i == password  ){
-                return true;
+            String nick = userArray.get(i).getNickname();
+            String pass = userArray.get(i).getPassword();
+            if( nick.equals(username) && pass.equals(password)){
+                System.out.println("usuario si esxiste");
+                break;
+            }else{   
+                System.out.println("User / Pass Incorrect!! ");
             }
         }
-        return false;
     }
     
     

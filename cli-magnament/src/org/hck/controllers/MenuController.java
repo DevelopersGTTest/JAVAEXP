@@ -14,7 +14,7 @@ public class MenuController {
     private static MenuController instance;
    // ReadIO read = new ReadIO();
     String username = "";
-    Integer password = 0;
+    String password = "";
     int op, numb, idx = 0;
     
     public static MenuController getInstance(){
@@ -44,11 +44,11 @@ public class MenuController {
         System.out.println(" Typing a Username.... ");
         this.username = ReadIO.getInstance().IOData();
         System.out.println(" Typing a Password.... ");
-        this.password =  Integer.parseInt(ReadIO.getInstance().IOData());
+        this.password = ReadIO.getInstance().IOData();
         
-        Boolean x = UserController.getInstance().Login(this.username, this.password);
+        UserController.getInstance().Login(this.username, this.password);
         
-        System.out.println("el status es: " + x );
+        //System.out.println("el status es: " + x );
     }
     
 }
