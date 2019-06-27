@@ -46,9 +46,9 @@ public class MenuController {
         System.out.println(" Typing a Password.... ");
         this.password = ReadIO.getInstance().IOData();
         
-        UserController.getInstance().Login(this.username, this.password);
+        String x = UserController.getInstance().Login(this.username, this.password);
         
-        //System.out.println("el status es: " + x );
+        System.out.println("el status es: " + x );
     }
     
 }
