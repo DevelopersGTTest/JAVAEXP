@@ -13,6 +13,7 @@ import java.util.ArrayList;
 public class UserController {
     private static UserController instance;
     private ArrayList<User> userArray = new ArrayList<User>();
+    private String resp = "";
     
     public static UserController getInstance(){
         if( instance == null ){
@@ -67,7 +68,14 @@ public class UserController {
     }
     
     //Search
-    
+    public Boolean Login(String username, Integer password){
+        for(int i =0; i< userArray.size(); i++  ){
+            if( i == password  ){
+                return true;
+            }
+        }
+        return false;
+    }
     
     
 }
