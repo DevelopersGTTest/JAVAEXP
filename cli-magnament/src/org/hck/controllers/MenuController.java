@@ -47,8 +47,13 @@ public class MenuController {
         this.password = ReadIO.getInstance().IOData();
         
         String x = UserController.getInstance().Login(this.username, this.password);
-        
         System.out.println("el status es: " + x );
+        
+        //A simple validation
+        if( x == "IS_LOGGED"){
+            this.DisplayOPTS();
+        }
+        
     }
     
 }
