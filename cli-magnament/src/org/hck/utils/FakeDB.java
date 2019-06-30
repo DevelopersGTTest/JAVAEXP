@@ -15,8 +15,7 @@ public class FakeDB {
     private static FakeDB instance;
     private int index = 1;
     
-    public static FakeDB getInstance(){
-    
+    public static FakeDB getInstance(){  
         if( instance == null ){
             instance = new FakeDB();
         }
