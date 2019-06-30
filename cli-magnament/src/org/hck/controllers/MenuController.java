@@ -15,6 +15,7 @@ public class MenuController {
    // ReadIO read = new ReadIO();
     String username = "";
     String password = "";
+    String auth = ""; 
     int op, numb, idx = 0;
     
     public static MenuController getInstance(){
@@ -44,14 +45,13 @@ public class MenuController {
         System.out.println(" Typing a Username.... ");
         this.username = ReadIO.getInstance().IOData();
         System.out.println(" Typing a Password.... ");
-        this.password = ReadIO.getInstance().IOData();
-        
-        String x = UserController.getInstance().Login(this.username, this.password);
-        System.out.println("el status es: " + x );
-        
-        //A simple validation
-        if( x == "IS_LOGGED"){
+        this.password = ReadIO.getInstance().IOData();        
+        this.auth = UserController.getInstance().Login(this.username, this.password);
+               
+        if( auth == "IS_LOGGED"){
             this.DisplayOPTS();
+        }else{
+            this.DisplayLogin();
         }
         
     }

@@ -76,7 +76,7 @@ public class UserController {
                 this.resp = "IS_LOGGED";
                 break;
             }else{
-                this.resp = "User / Pass Incorrect!! ";
+                this.resp = "NOT_LOGGED";
             }
         }
         return this.resp;
