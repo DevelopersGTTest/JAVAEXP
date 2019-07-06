@@ -15,7 +15,7 @@ public class MenuController {
    // ReadIO read = new ReadIO();
     String username = "";
     String password = "";
-    String auth = ""; 
+    Boolean auth = false; 
     int op, numb, idx = 0;
      
     public static MenuController getInstance(){
@@ -25,7 +25,7 @@ public class MenuController {
         return instance;
     }
     
-    public void DisplayOPTS(){
+    public void DisplayGlobalMenu(){
     
         System.out.println("|========================|");
         System.out.println("| 1.    [ Categories ]   |");
@@ -33,14 +33,22 @@ public class MenuController {
         System.out.println("|========================|");
         try{
             this.op = Integer.parseInt(ReadIO.getInstance().IOData());
-            this.op =  ( this.op != 1 || this.op !=2 ) ? 0  : 0 ;
-            System.out.println("  this result is: " + this.op );
+            switch( this.op  ){
+                case 1:
+                    this.DisplayCategoriesMenu();
+                break;
+                case 2:
+                    this.DisplayContactsMenu();
+                break;
+                default:
+                    System.out.println(" Invalid Option");
+            } 
         }catch(NumberFormatException e){
             System.out.println("invalid character");
-            this.DisplayOPTS();
+            this.DisplayGlobalMenu();
         }
     }
-    
+         
     public void DisplayLogin(){
         //Mapping a data dummy
         FakeDB.getInstance().RegisterUsers();
@@ -53,13 +61,21 @@ public class MenuController {
         System.out.println(" Typing a Password.... ");
         this.password = ReadIO.getInstance().IOData();        
         this.auth = UserController.getInstance().Login(this.username, this.password);
-               
-        if( auth == "IS_LOGGED"){
-            this.DisplayOPTS();
+        if( this.auth = true){
+            this.DisplayGlobalMenu();
         }else{
-            this.DisplayLogin();
-        }
-        
+            this.DisplayLogin();   
+        } 
+   }
+    
+    public void DisplayCategoriesMenu(){
+    
     }
+    
+    public void DisplayContactsMenu(){
+    
+    }
+    
+    
     
 }

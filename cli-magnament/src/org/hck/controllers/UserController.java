@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class UserController {
     private static UserController instance;
     private ArrayList<User> userArray = new ArrayList<User>();
-    private String resp = "";
+    private Boolean resp = false;
     
     public static UserController getInstance(){
         if( instance == null ){
@@ -68,15 +68,15 @@ public class UserController {
     }
     
     //Search
-    public String Login(String username, String password){
+    public Boolean Login(String username, String password){
         for(int i =0; i< userArray.size(); i++  ){
             String nick = userArray.get(i).getNickname();
             String pass = userArray.get(i).getPassword();
             if( nick.equals(username) && pass.equals(password)){
-                this.resp = "IS_LOGGED";
+                this.resp = true;
                 break;
             }else{
-                this.resp = "NOT_LOGGED";
+                this.resp = false;
             }
         }
         return this.resp;
