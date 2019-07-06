@@ -17,7 +17,7 @@ public class MenuController {
     String password = "";
     String auth = ""; 
     int op, numb, idx = 0;
-    
+     
     public static MenuController getInstance(){
         if( instance == null ){
             instance = new MenuController();
@@ -28,11 +28,17 @@ public class MenuController {
     public void DisplayOPTS(){
     
         System.out.println("|========================|");
-        System.out.println("| 1.    [ADD]   :  User  |");
-        System.out.println("| 2.    [READ]  :  User  |");
-        System.out.println("| 3.    [DELETE]:  User  |");
+        System.out.println("| 1.    [ Categories ]   |");
+        System.out.println("| 2.    [ Contacts   ]   |");    
         System.out.println("|========================|");
-    
+        try{
+            this.op = Integer.parseInt(ReadIO.getInstance().IOData());
+            this.op =  ( this.op != 1 || this.op !=2 ) ? 0  : 0 ;
+            System.out.println("  this result is: " + this.op );
+        }catch(NumberFormatException e){
+            System.out.println("invalid character");
+            this.DisplayOPTS();
+        }
     }
     
     public void DisplayLogin(){
