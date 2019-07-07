@@ -42,6 +42,7 @@ public class MenuController {
                 break;
                 default:
                     System.out.println(" Invalid Option");
+                    this.DisplayGlobalMenu();
             } 
         }catch(NumberFormatException e){
             System.out.println("invalid character");
@@ -60,7 +61,8 @@ public class MenuController {
         this.username = ReadIO.getInstance().IOData();
         System.out.println(" Typing a Password.... ");
         this.password = ReadIO.getInstance().IOData();        
-        this.auth = UserController.getInstance().Login(this.username, this.password);
+        this.auth = UserController
+            .getInstance().Login(this.username, this.password);
         if( this.auth = true){
             this.DisplayGlobalMenu();
         }else{
