@@ -6,6 +6,7 @@
 package org.hck.controllers;
 import org.hck.utils.ReadIO;
 import org.hck.utils.FakeDB;
+import org.hck.controllers.ProcessatorController;
 /**
  *
  * @author Hackobo
@@ -75,7 +76,8 @@ public class MenuController {
     }
     
     public void DisplayContactsMenu(){
-    
+        ProcessatorController.getInstance()
+            .ProcessatorContacts();
     }
     
     
