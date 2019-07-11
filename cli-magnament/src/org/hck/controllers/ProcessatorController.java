@@ -21,6 +21,11 @@ public class ProcessatorController {
     
     public void ProcessatorContacts(){
         System.out.println("helow");
+        System.out.println("    Actions  ");
+        System.out.println(" [ ADD-CONTACT    ] < Entity > ");
+        System.out.println(" [ SHOW-CONTACT   ]  ");
+        System.out.println(" [ UPDATE-CONTACT ] <IdContact> ");
+        System.out.println(" [ DELETE-CONTACT ] <IdContact> ");
     }
     
 }
