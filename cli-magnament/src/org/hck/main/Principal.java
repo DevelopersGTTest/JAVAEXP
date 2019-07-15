@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package org.hck.main;
-import org.hck.controllers.MenuController;
+import org.hck.views.LoginView;
 
 /**
  *
@@ -14,6 +14,6 @@ public class Principal {
     
     public static void main(String[] args){
         System.out.println("CLI-APP");
-        MenuController.getInstance().DisplayLogin();
+        LoginView.getInstance().DisplayLogin();
     }
 }
