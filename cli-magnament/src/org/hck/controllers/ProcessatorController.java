@@ -45,7 +45,7 @@ public class ProcessatorController {
             case "DELETE-CONTACT":
             break;
             default:
-                System.out.println(" Opcion invalida  ");
+                System.out.println(" Invalid Options ");
         }
     }
     
