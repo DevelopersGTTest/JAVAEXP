@@ -13,11 +13,11 @@ import org.hck.controllers.ProcessatorController;
  */
 public class MenuController {
     private static MenuController instance;
-   // ReadIO read = new ReadIO();
-    String username = "";
-    String password = "";
-    Boolean auth = false; 
-    int op, numb, idx = 0;
+    private String username = "";
+    private String password = "";
+    private Boolean auth = false;
+    private String term = "";
+    private int op, numb, idx = 0;
      
     public static MenuController getInstance(){
         if( instance == null ){
@@ -72,12 +72,51 @@ public class MenuController {
    }
     
     public void DisplayCategoriesMenu(){
-    
+        System.out.println("    Actions -- categories ");
+        System.out.println(" [ ADD-CATEGORY     ] : < body-data > ");
+        System.out.println(" [ SHOW-CATEGORY    ] : < empty >  ");
+        System.out.println(" [ UPDATE-CATEGORY  ] : < IdContact> ");
+        System.out.println(" [ DELETE-CATEGORY  ] : < IdContact> ");
+        this.term = ReadIO.getInstance().IOData();
+        switch( this.term ){
+            case "ADD-CATEGORY" :
+                System.out.println("holas add");
+            break;
+            case "SHOW-CATEGORY":
+                System.out.println("holas shos");
+            break;
+            case "UPDATE-CATEGORY":
+                System.out.println("holas updated");
+            break;
+            case "DELETE-CATEGORY":
+            break;
+            default:
+                System.out.println(" Invalid Options ");
+        }
     }
     
     public void DisplayContactsMenu(){
-        ProcessatorController.getInstance()
-            .ProcessatorContacts();
+        System.out.println("    Actions  ");
+        System.out.println(" [ ADD-CONTACT    ] : < body-data > ");
+        System.out.println(" [ SHOW-CONTACT   ] : < empty > ");
+        System.out.println(" [ UPDATE-CONTACT ] : < IdContact> ");
+        System.out.println(" [ DELETE-CONTACT ] : < IdContact> ");
+        this.term = ReadIO.getInstance().IOData();
+        switch( this.term ){
+            case "ADD-CONTACT" :
+                System.out.println("holas add");
+            break;
+            case "SHOW-CONTACT":
+                System.out.println("holas shos");
+            break;
+            case "UPDATE-CONTACT":
+                System.out.println("holas updated");
+            break;
+            case "DELETE-CONTACT":
+            break;
+            default:
+                System.out.println(" Invalid Options ");
+        }
     }
     
     
