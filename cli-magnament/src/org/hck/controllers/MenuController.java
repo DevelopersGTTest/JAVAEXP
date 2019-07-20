@@ -6,7 +6,6 @@
 package org.hck.controllers;
 import org.hck.utils.ReadIO;
 import org.hck.utils.FakeDB;
-import org.hck.controllers.ProcessatorController;
 /**
  *
  * @author Hackobo
@@ -17,7 +16,7 @@ public class MenuController {
     private String password = "";
     private Boolean auth = false;
     private String term = "";
-    private int op, numb, idx = 0;
+    private int op = 0;
      
     public static MenuController getInstance(){
         if( instance == null ){
