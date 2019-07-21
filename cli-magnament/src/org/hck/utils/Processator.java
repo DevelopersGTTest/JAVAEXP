@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package org.hck.utils;
+import org.hck.controllers.MenuController;
 
 /**
  *
@@ -23,22 +24,52 @@ public class Processator {
        return instance;
    }
    
-   public String plotProcess(String data){
+   public void plotProcess(String data){
         this.parts = data.split("-");
         this.part_prefix = this.parts[0];
         this.part_entity = this.parts[1];
+        this.exp_merge = this.part_prefix + "-" + this.part_entity;
         
-        switch(this.part_prefix +"-"+ this.part_entity ){
+        System.out.println("xxxx::: " + this.exp_merge );
+        
+        switch( this.exp_merge ){
             case "ADD-CATEGORY":
+                System.out.println("add category");
+                MenuController.getInstance().DisplayGlobalMenu();
             break;
             case "SHOW-CATEGORY ":
+                System.out.println("show category");
+                MenuController.getInstance().DisplayGlobalMenu();
             break;
             case "UPDATE-CATEGORY":
+                System.out.println("update category");
+                MenuController.getInstance().DisplayGlobalMenu();
             break;
+            case "DELETE-CATEGORY":
+                System.out.println("delete category");
+                MenuController.getInstance().DisplayGlobalMenu();
+            break;
+            case "ADD-CONTACT" :
+                System.out.println("holas add");
+                MenuController.getInstance().DisplayGlobalMenu();
+            break;
+            case "SHOW-CONTACT":
+                System.out.println("holas shos");
+                MenuController.getInstance().DisplayGlobalMenu();
+            break;
+            case "UPDATE-CONTACT":
+                System.out.println("holas updated");
+                MenuController.getInstance().DisplayGlobalMenu();
+            break;
+            case "DELETE-CONTACT":
+                System.out.println("holas deleted");
+                MenuController.getInstance().DisplayGlobalMenu();
+            break;
+            default:
+                System.out.println("your exp"+ this.part_prefix 
+                        + "-"+ this.part_entity+ "has incorrect");
+                MenuController.getInstance().DisplayGlobalMenu();
         }
-                
-       System.out.println("esto llego" + this.part_prefix  );
-       return this.part_prefix; 
    }
    
    

@@ -18,7 +18,7 @@ public class MenuController {
     private Boolean auth = false;
     private String term = "";
     private int op = 0;
-    private String processator = "";
+   
      
     public static MenuController getInstance(){
         if( instance == null ){
@@ -79,7 +79,7 @@ public class MenuController {
         System.out.println(" [ UPDATE-CATEGORY  ] : < IdContact> ");
         System.out.println(" [ DELETE-CATEGORY  ] : < IdContact> ");
         this.term = ReadIO.getInstance().IOData();
-        this.processator = Processator.getInstance().plotProcess(term);
+        Processator.getInstance().plotProcess(term);
     }
     
     public void DisplayContactsMenu(){
@@ -89,21 +89,7 @@ public class MenuController {
         System.out.println(" [ UPDATE-CONTACT ] : < IdContact> ");
         System.out.println(" [ DELETE-CONTACT ] : < IdContact> ");
         this.term = ReadIO.getInstance().IOData();
-        switch( this.term ){
-            case "ADD-CONTACT" :
-                System.out.println("holas add");
-            break;
-            case "SHOW-CONTACT":
-                System.out.println("holas shos");
-            break;
-            case "UPDATE-CONTACT":
-                System.out.println("holas updated");
-            break;
-            case "DELETE-CONTACT":
-            break;
-            default:
-                System.out.println(" Invalid Options ");
-        }
+        Processator.getInstance().plotProcess(term);
     }
     
     
