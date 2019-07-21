@@ -6,6 +6,7 @@
 package org.hck.controllers;
 import org.hck.utils.ReadIO;
 import org.hck.utils.FakeDB;
+import org.hck.utils.Processator;
 /**
  *
  * @author Hackobo
@@ -17,6 +18,7 @@ public class MenuController {
     private Boolean auth = false;
     private String term = "";
     private int op = 0;
+    private String processator = "";
      
     public static MenuController getInstance(){
         if( instance == null ){
@@ -77,21 +79,7 @@ public class MenuController {
         System.out.println(" [ UPDATE-CATEGORY  ] : < IdContact> ");
         System.out.println(" [ DELETE-CATEGORY  ] : < IdContact> ");
         this.term = ReadIO.getInstance().IOData();
-        switch( this.term ){
-            case "ADD-CATEGORY" :
-                System.out.println("holas add");
-            break;
-            case "SHOW-CATEGORY":
-                System.out.println("holas shos");
-            break;
-            case "UPDATE-CATEGORY":
-                System.out.println("holas updated");
-            break;
-            case "DELETE-CATEGORY":
-            break;
-            default:
-                System.out.println(" Invalid Options ");
-        }
+        this.processator = Processator.getInstance().plotProcess(term);
     }
     
     public void DisplayContactsMenu(){
