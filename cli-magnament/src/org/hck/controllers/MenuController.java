@@ -79,7 +79,12 @@ public class MenuController {
         System.out.println(" [ UPDATE-CATEGORY  ] : < IdContact> ");
         System.out.println(" [ DELETE-CATEGORY  ] : < IdContact> ");
         this.term = ReadIO.getInstance().IOData();
-        Processator.getInstance().plotProcess(term);
+        try{
+            Processator.getInstance().plotProcess(term);
+        }catch(ArrayIndexOutOfBoundsException e){
+            System.out.println("you must send the data" + e );
+        }
+        
     }
     
     public void DisplayContactsMenu(){
@@ -89,7 +94,11 @@ public class MenuController {
         System.out.println(" [ UPDATE-CONTACT ] : < IdContact> ");
         System.out.println(" [ DELETE-CONTACT ] : < IdContact> ");
         this.term = ReadIO.getInstance().IOData();
-        Processator.getInstance().plotProcess(term);
+        try{
+            Processator.getInstance().plotProcess(term);
+        }catch(ArrayIndexOutOfBoundsException e){
+            System.out.println("you must send the data" + e);
+        }
     }
     
     

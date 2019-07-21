@@ -13,6 +13,8 @@ import org.hck.controllers.MenuController;
 public class Processator {
    private static Processator instance;
    private String[] parts;
+   private String[] parts_entity;
+   private String part_body;
    private String part_prefix;
    private String part_entity;
    private String exp_merge;
@@ -27,14 +29,18 @@ public class Processator {
    public void plotProcess(String data){
         this.parts = data.split("-");
         this.part_prefix = this.parts[0];
-        this.part_entity = this.parts[1];
+        this.part_entity = this.parts[1]; 
+        this.parts_entity = this.part_entity.split(":");
+        this.part_entity = this.parts_entity[0];
+        this.part_body = this.parts_entity[1];
+        
         this.exp_merge = this.part_prefix + "-" + this.part_entity;
         
         System.out.println("xxxx::: " + this.exp_merge );
         
-        switch( this.exp_merge ){
+        switch( this.exp_merge ){   
             case "ADD-CATEGORY":
-                System.out.println("add category");
+                System.out.println("your body is : " + this.part_body );
                 MenuController.getInstance().DisplayGlobalMenu();
             break;
             case "SHOW-CATEGORY ":
@@ -67,9 +73,11 @@ public class Processator {
             break;
             default:
                 System.out.println("your exp"+ this.part_prefix 
-                        + "-"+ this.part_entity+ "has incorrect");
+                    + "-"+ this.part_entity+ "has incorrect");
                 MenuController.getInstance().DisplayGlobalMenu();
-        }
+        }    
+       
+        
    }
    
    
