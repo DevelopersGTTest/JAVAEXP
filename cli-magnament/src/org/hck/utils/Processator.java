@@ -5,6 +5,8 @@
  */
 package org.hck.utils;
 import org.hck.controllers.MenuController;
+import org.hck.controllers.CategoryController;
+import org.hck.controllers.ContactController;
 
 /**
  *
@@ -18,6 +20,7 @@ public class Processator {
    private String part_prefix;
    private String part_entity;
    private String exp_merge;
+   private int idx = 0;
    
    public static Processator getInstance(){
        if( instance == null ){
@@ -40,19 +43,24 @@ public class Processator {
         
         switch( this.exp_merge ){   
             case "ADD-CATEGORY":
-                System.out.println("your body is : " + this.part_body );
-                MenuController.getInstance().DisplayGlobalMenu();
+                CategoryController.getInstance()
+                    .AddCategory(this.idx++, part_body);
+                MenuController.getInstance()
+                    .DisplayGlobalMenu();
             break;
-            case "SHOW-CATEGORY ":
-                System.out.println("show category");
-                MenuController.getInstance().DisplayGlobalMenu();
+            case "SHOW-CATEGORY":
+                CategoryController.getInstance()
+                    .ShowCategories();
+                MenuController.getInstance()
+                    .DisplayGlobalMenu();
             break;
             case "UPDATE-CATEGORY":
-                System.out.println("update category");
+                System.out.println("bilding......");
                 MenuController.getInstance().DisplayGlobalMenu();
             break;
             case "DELETE-CATEGORY":
-                System.out.println("delete category");
+                CategoryController.getInstance()
+                    .deleteCategory( Integer.parseInt(this.part_body));
                 MenuController.getInstance().DisplayGlobalMenu();
             break;
             case "ADD-CONTACT" :

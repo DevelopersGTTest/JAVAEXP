@@ -35,5 +35,19 @@ public class CategoryController {
         }
     }
     
+    public void deleteCategory(Integer id ){
+        try{
+            for(int i=0; i< this.categoryArray.size(); i ++ ){
+                if(i == id ){
+                    this.categoryArray.remove(i);
+                    break;
+                }
+            }
+        }catch(ArrayIndexOutOfBoundsException  e){
+            System.out.println("this index not exist" + e);
+        }
+    
+    }
+    
     
 }
