@@ -22,7 +22,7 @@ public class Eje {
         //TODO code application logic here
         Scanner sc = new Scanner(System.in);
         int dato = 0;
-        
+        //primera clase umg progra 2
         
         do{
             System.out.println("   Hola Mundo      ");
