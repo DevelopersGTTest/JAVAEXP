@@ -22,6 +22,9 @@ public class Overr {
         emp.setNombre("linus torvalds");
         System.out.println(emp);
         
+        Directivo dir = new Directivo();
+        System.out.println(dir);
+        
     }
     
     

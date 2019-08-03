@@ -11,15 +11,15 @@ package overr;
  */
 public class Directivo extends Empleado {
     
-    Directivo direc = new Directivo();
-    
     @Override
     public String toString(){
         return "this directivo";
     }
     
-    public  void showDirectivo(){
-        System.out.println(direc.toString()) ;
+    public static void main(String[] args ) {
+        Directivo direc = new Directivo();
+        //System.out.println( direc.toString() );
+        //System.out.println(direc.toString()) ;
     }
     
 }
