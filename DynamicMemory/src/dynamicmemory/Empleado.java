@@ -9,6 +9,43 @@ package dynamicmemory;
  *
  * @author Hackobo
  */
-public class Empleado {
+public class Empleado extends Persona  {
+    
+    private String puesto;
+    private int salario;
+    private String codigoEmpleado;
+
+    public Empleado(String puesto, int salario, 
+        String nombre, String dpi, int edad) {
+        super(nombre, dpi, edad);
+        this.puesto = puesto;
+        this.salario = salario;
+    }
+
+    public String getPuesto() {
+        return puesto;
+    }
+
+    public void setPuesto(String puesto) {
+        this.puesto = puesto;
+    }
+
+    public int getSalario() {
+        return salario;
+    }
+
+    public void setSalario(int salario) {
+        this.salario = salario;
+    }
+
+    public String getCodigoEmpleado() {
+        return codigoEmpleado;
+    }
+
+    public void setCodigoEmpleado(String codigoEmpleado) {
+        this.codigoEmpleado = codigoEmpleado;
+    }
+    
+    
     
 }
