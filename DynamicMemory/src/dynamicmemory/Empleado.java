@@ -14,7 +14,9 @@ public class Empleado extends Persona  {
     private String puesto;
     private int salario;
     private String codigoEmpleado;
-
+   
+    public Empleado(){}
+    
     public Empleado(String puesto, int salario, 
         String nombre, String dpi, int edad) {
         super(nombre, dpi, edad);

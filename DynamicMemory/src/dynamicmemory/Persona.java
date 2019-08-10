@@ -13,6 +13,8 @@ public class Persona {
     private String nombre;
     private String dpi;
     private int edad;
+    
+    public Persona(){}
 
     public Persona(String nombre, String dpi, int edad) {
         this.nombre = nombre;
