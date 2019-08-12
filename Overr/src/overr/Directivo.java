@@ -17,9 +17,7 @@ public class Directivo extends Empleado {
     }
     
     public static void main(String[] args ) {
-        Directivo direc = new Directivo();
-        //System.out.println( direc.toString() );
-        //System.out.println(direc.toString()) ;
+        System.out.println("buildddd");
     }
     
 }
