@@ -15,7 +15,7 @@ public class UI {
    private static UI instance;
    private Scanner sc  = new Scanner(System.in);
    private String nombre, apellido,dpi = "";
-   private int opcion, edad = 0;
+   private int opcion, edad, id = 0;
    
    public static UI getInstance(){
        if( instance == null ){
@@ -54,7 +54,7 @@ public class UI {
        System.out.println("1. Agregar     ");
        System.out.println("2. Modificar   ");
        System.out.println("3. Mostrar     ");
-       System.out.println("4. Desabilitar ");
+       System.out.println("4. Deshabilitar ");
        this.opcion = Integer.parseInt( sc.nextLine());
        switch( this.opcion ){
            case 1:
@@ -78,11 +78,41 @@ public class UI {
                System.out.println(" [ Modificar ]  ");
                ControladorTodo.getInstance().mostrarAlumnos();
                System.out.println("Ingresa el idAlumno a modificar");
+               this.id = Integer.parseInt( sc.nextLine());
+               System.out.println("Ingresa el nuevo Nombre");
+               this.nombre = sc.nextLine();
+               System.out.println("Ingresa el nuevo Apellido");
+               this.apellido = sc.nextLine();
+               System.out.println("Ingresa la nueva Edad");
+               this.edad = Integer.parseInt( sc.nextLine());
+               ControladorTodo.getInstance()
+                    .modificarAlumno(this.id, this.nombre, 
+                        this.apellido, this.edad);
+                System.out.println("");
+                System.out.println("Modificado Correctamente!!!");
+                System.out.println("");
+                ControladorTodo.getInstance().mostrarAlumnos();
+                System.out.println("");
+               this.MenuGeneral();
            case 3:
-               this.Cursos();
+               System.out.println(" [ Mostrar ] ");
+               ControladorTodo.getInstance().mostrarAlumnos();
+               System.out.println(" ");
+               this.MenuGeneral();
            break;
            case 4:
-               this.Asignaciones();
+               System.out.println(" [ Deshabilitar ] ");
+               ControladorTodo.getInstance().mostrarAlumnos();
+               System.out.println("Ingresa el idAlumno a DesHabilitar");
+               this.id = Integer.parseInt( sc.nextLine());
+               ControladorTodo.getInstance().cambiarStatus(this.id);
+               System.out.println("");
+               System.out.println("Usuario Deshabilitado  !!!!");
+               System.out.println("");
+               ControladorTodo.getInstance().mostrarAlumnos();
+               this.MenuGeneral();
+               System.out.println("");
+               
            break;
            default:
                System.out.println("Opcion invalida!!!!");

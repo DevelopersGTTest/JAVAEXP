@@ -49,9 +49,9 @@ public class Alumnos {
     
     public boolean isEstatus() {
         if(estatus == true ){
-            System.out.println("Activo");
+            System.out.println("[---Activo---]");
         }else{
-            System.out.println("Inactivo");
+            System.out.println("[---Inactivo----]");
         }
         return estatus;
     }
