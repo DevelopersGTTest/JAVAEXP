@@ -11,9 +11,11 @@ package asignaciones;
  */
 public class Cursos {
     private String nombreCurso;
-
+    private boolean estatus;
+            
     public Cursos(String nombreCurso) {
         this.nombreCurso = nombreCurso;
+        this.estatus = true;
     }
 
     public String getNombreCurso() {
@@ -24,6 +26,18 @@ public class Cursos {
         this.nombreCurso = nombreCurso;
     }
     
+       public boolean isEstatus() {
+        if(estatus == true ){
+            System.out.println("[---Activo---]");
+        }else{
+            System.out.println("[---Inactivo----]");
+        }
+        return estatus;
+    }
+
+    public void setEstatus(boolean estatus) {
+        this.estatus = estatus;
+    }
     
     
 }
