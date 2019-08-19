@@ -17,6 +17,7 @@ public class UI {
    private Scanner sc  = new Scanner(System.in);
    private String nombre, apellido,dpi = "";
    private int opcion, edad, id = 0;
+   private boolean typeOPVERIFY = false;
    
    public static UI getInstance(){
        if( instance == null ){
@@ -248,24 +249,92 @@ public class UI {
    }
          
    public void Asignaciones(){
-       System.out.println("1. Agregar            ");
-       System.out.println("2. Mostrar            ");
-       System.out.println("3. Deshabilitar asign ");
+       System.out.println("1. Agregar Asignacion         ");
+       System.out.println("2. Mostrar Asignaciones       ");
        this.opcion = Integer.parseInt( sc.nextLine());
        switch( this.opcion ){
            case 1:
-               this.Alumnos();
+               System.out.println("");
+               System.out.println("[ Ingreso asignaciones ] ");
+               System.out.println("");
+               System.out.println("PASO 1");
+               ControladorTodo.getInstance().mostrarAlumnos();
+               System.out
+                    .println(" Ingresa un idAlumno valido [Activo] | true ");
+               this.id =  Integer.parseInt( sc.nextLine());
+                this.agregarAsignacion(this.id);
+               
+               
+               System.out.println("el resultado es  "  + this.typeOPVERIFY  );
+               this.MenuGeneral();
            break;
            case 2:
-               this.Catedraticos();
-           break;
-           case 3:
-               this.Cursos();
+               ControladorTodo.getInstance().mostrarAsign();
            break;
            default:
                System.out.println("Opcion invalida!!!!");
                this.MenuGeneral();
        }
    }
+   
+   public boolean agregarAsignacion(int idAlumno){
+       
+       this.typeOPVERIFY = ControladorTodo
+                    .getInstance().verificarEstadoAlumno( this.id );
+       if( this.typeOPVERIFY == true ){
+           ControladorTodo.getInstance().mostrarCatedratico();
+           System.out
+                .println("Ingresa un idCatedratico valido [Activo] | true");
+           this.id = Integer.parseInt( sc.nextLine());
+           this.agregarAsignCatedratico(this.id);
+           
+       }else{
+           ControladorTodo.getInstance().mostrarAlumnos();
+           System.out
+                    .println(" Ingresa un idAlumno valido !!!! ");
+           this.id =  Integer.parseInt( sc.nextLine());
+           this.agregarAsignacion(this.id);
+       }
+   
+       return this.typeOPVERIFY;
+   }
+   
+   public boolean agregarAsignCatedratico(int idCatedratico ){
+       this.typeOPVERIFY = ControladorTodo
+                    .getInstance().verificarEstadoCatedratico(idCatedratico);
+       if( this.typeOPVERIFY == true ){
+           ControladorTodo.getInstance().mostrarCursos();
+            System.out
+                .println("Ingresa un idCurso valido [Activo] | true");
+           this.id = Integer.parseInt( sc.nextLine());
+           this.agregarAsignCurso(this.id);
+       }else{
+           ControladorTodo.getInstance().mostrarCatedratico();
+           System.out
+                    .println(" Ingresa un idCatedratico valido !!!! ");
+           this.id =  Integer.parseInt( sc.nextLine());
+           this.agregarAsignCatedratico(this.id);
+       }
+   
+       return this.typeOPVERIFY;
+   }
+   
+    public boolean agregarAsignCurso(int idCurso ){
+       this.typeOPVERIFY = ControladorTodo
+                    .getInstance().verificarEstadoCurso(idCurso);
+       if( this.typeOPVERIFY == true ){
+           ControladorTodo.getInstance().agregarAsignacion(idCurso);
+       }else{
+           ControladorTodo.getInstance().mostrarCursos();
+           System.out
+                    .println(" Ingresa un idCurso valido !!!! ");
+           this.id =  Integer.parseInt( sc.nextLine());
+           this.agregarAsignCurso(this.id);
+       }
+   
+       return this.typeOPVERIFY;
+   }
+   
+   
    
 }

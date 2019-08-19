@@ -130,6 +130,8 @@ public class ControladorTodo {
                 + i  );
             System.out.println("Nombre    :" 
                 + cursos.get(i).getNombreCurso());
+            System.out.println("Estatus  :" 
+                + cursos.get(i).isEstatus());
             System.out.println("---------------------------------------");
         }
     }
@@ -145,4 +147,67 @@ public class ControladorTodo {
     /*
     * @Asignaciones
     */
+    
+    public boolean verificarEstadoAlumno(int idAlumno){
+        boolean type = false;
+        if( alumnos.size() > 0  ){
+            for(int i =0; i < alumnos.size(); i++ ){
+                if(i == idAlumno ){
+                    if( alumnos.get(i).isEstatus() == true ){
+                         type = true;
+                         break;
+                    }else{
+                         type = false;
+                         break;
+                    }
+                }
+            }
+        }
+        return type;
+    }
+    
+       public boolean verificarEstadoCatedratico(int idCatedratico){
+        boolean type = false;
+        if( catedraticos.size() > 0  ){
+            for(int i =0; i < catedraticos.size(); i++ ){
+                if(i == idCatedratico){
+                    if( catedraticos.get(i).isEstatus() == true ){
+                         type = true;
+                    }else{
+                        return false;
+                    }
+                }
+            }
+        }
+        return type;
+    }
+       
+       public boolean verificarEstadoCurso(int idCurso){
+        boolean type = false;
+        if( cursos.size() > 0  ){
+            for(int i =0; i < cursos.size(); i++ ){
+                if(i == idCurso){
+                    if( cursos.get(i).isEstatus() == true ){
+                         type = true;
+                    }else{
+                        return false;
+                    }
+                }
+            }
+        }
+        return type;
+    }
+       
+       
+     public void agregarAsignacion(int id ){
+         asign.add(new Asign( id));
+     }
+     
+     public void mostrarAsign(){
+         for(int i =0; i < asign.size(); i++ ){
+             System.out.println("id :" + i );
+             System.out.println(" id Asignacion " + asign.get(i).getIdAlgo() );
+         }
+     }
+    
 }

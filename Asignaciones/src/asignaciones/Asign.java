@@ -13,11 +13,25 @@ public class Asign {
     private Alumnos alumnos;
     private Catedraticos catedraticos;
     private Cursos cursos;
+    private  int idAlgo;
 
     public Asign(Alumnos alumnos, Catedraticos catedraticos, Cursos cursos) {
         this.alumnos = alumnos;
         this.catedraticos = catedraticos;
         this.cursos = cursos;
+    }
+    
+    public Asign(int id){
+        this.idAlgo = id;
+    }
+    
+    
+    public int getIdAlgo() {
+        return idAlgo;
+    }
+
+    public void setIdAlgo(int idAlgo) {
+        this.idAlgo = idAlgo;
     }
 
     public Alumnos getAlumnos() {
