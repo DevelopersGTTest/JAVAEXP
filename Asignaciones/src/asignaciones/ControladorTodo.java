@@ -12,8 +12,8 @@ import java.util.ArrayList;
  * @author Hackobo
  */
 public class ControladorTodo {
-    //controlador maestro
-    //USARE SINGLETON PARA LOS CONTROLADORES
+    //CONTROLADOR MAESTRO
+    //USARE SINGLETON PARA EL CONTROLADOR
     private static ControladorTodo instance;
     
     public static ControladorTodo getInstance(){
@@ -67,10 +67,44 @@ public class ControladorTodo {
     }
     
     
-    
     /*
     * @Catedraticos
     */
+    public void agregarCatedratico(String nombre, String apellido, int edad){
+        alumnos.add( new Alumnos(nombre, apellido, edad ));
+    }
+    
+    public void modificarCatedratico(int id, String nombre, 
+    String apellido, int edad){
+        for(int i=0; i< alumnos.size(); i++){
+            if( i == id ){
+                alumnos.get(i).setNombre(nombre);
+                alumnos.get(i).setApellido(apellido);
+                alumnos.get(i).setEdad(edad);
+            }
+        }
+    }
+    
+    public void mostrarCatedratico(){
+        for(int i=0; i< alumnos.size(); i++){
+            System.out.println("---------------------------------------");
+            System.out.println("idAlumno :" + i  );
+            System.out.println("Nombre   :" + alumnos.get(i).getNombre());
+            System.out.println("Apellido :" + alumnos.get(i).getApellido());
+            System.out.println("Edad     :" + alumnos.get(i).getEdad());
+            System.out.println("Estatus  :" + alumnos.get(i).isEstatus());
+            System.out.println("---------------------------------------");
+        }
+    }
+    
+    public void cambiarStatusC(int id ){
+        for(int i=0; i< alumnos.size(); i++){
+            if( i == id ){
+                alumnos.get(i).setEstatus(false); //solo existen dos estatus :)
+            }
+        }
+    }
+    
     
     /*
     * @Cursos

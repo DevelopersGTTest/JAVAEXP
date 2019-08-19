@@ -12,6 +12,7 @@ import java.util.Scanner;
  * @author Hackobo
  */
 public class UI {
+    //USARE SINGLETON PARA EL CONTROLADOR :)
    private static UI instance;
    private Scanner sc  = new Scanner(System.in);
    private String nombre, apellido,dpi = "";

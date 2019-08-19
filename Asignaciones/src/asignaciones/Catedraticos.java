@@ -12,6 +12,7 @@ package asignaciones;
 public class Catedraticos {
     private String nombreCatedratico;
     private String dpiCatedratico;
+    private boolean estatus;
 
     public Catedraticos(String nombreCatedratico, String dpiCatedratico) {
         this.nombreCatedratico = nombreCatedratico;
@@ -33,7 +34,19 @@ public class Catedraticos {
     public void setDpiCatedratico(String dpiCatedratico) {
         this.dpiCatedratico = dpiCatedratico;
     }
+    
+    public boolean isEstatus() {
+        if(estatus == true ){
+            System.out.println("[---Activo---]");
+        }else{
+            System.out.println("[---Inactivo----]");
+        }
+        return estatus;
+    }
 
+    public void setEstatus(boolean estatus) {
+        this.estatus = estatus;
+    }
    
     
 }
