@@ -70,37 +70,38 @@ public class ControladorTodo {
     /*
     * @Catedraticos
     */
-    public void agregarCatedratico(String nombre, String apellido, int edad){
-        alumnos.add( new Alumnos(nombre, apellido, edad ));
+    public void agregarCatedratico(String nombre, String dpi){
+        catedraticos.add( new Catedraticos(nombre , dpi));
     }
     
-    public void modificarCatedratico(int id, String nombre, 
-    String apellido, int edad){
-        for(int i=0; i< alumnos.size(); i++){
+    public void modificarCatedratico(int id, String nombre, String dpi){
+        for(int i=0; i< catedraticos.size(); i++){
             if( i == id ){
-                alumnos.get(i).setNombre(nombre);
-                alumnos.get(i).setApellido(apellido);
-                alumnos.get(i).setEdad(edad);
+                catedraticos.get(i).setNombreCatedratico(nombre);
+                catedraticos.get(id).setDpiCatedratico(dpi);
             }
         }
     }
     
     public void mostrarCatedratico(){
-        for(int i=0; i< alumnos.size(); i++){
+        for(int i=0; i< catedraticos.size(); i++){
             System.out.println("---------------------------------------");
-            System.out.println("idAlumno :" + i  );
-            System.out.println("Nombre   :" + alumnos.get(i).getNombre());
-            System.out.println("Apellido :" + alumnos.get(i).getApellido());
-            System.out.println("Edad     :" + alumnos.get(i).getEdad());
-            System.out.println("Estatus  :" + alumnos.get(i).isEstatus());
+            System.out.println("idCatedratico :" 
+                + i  );
+            System.out.println("Nombre    :" 
+                + catedraticos.get(i).getNombreCatedratico());
+            System.out.println("DPI       :" 
+                + catedraticos.get(i).getDpiCatedratico());
+            System.out.println("Estatus  :" 
+                + catedraticos.get(i).isEstatus());
             System.out.println("---------------------------------------");
         }
     }
     
     public void cambiarStatusC(int id ){
-        for(int i=0; i< alumnos.size(); i++){
+        for(int i=0; i< catedraticos.size(); i++){
             if( i == id ){
-                alumnos.get(i).setEstatus(false); //solo existen dos estatus :)
+                catedraticos.get(i).setEstatus(false); //solo existen dos estatus :)
             }
         }
     }

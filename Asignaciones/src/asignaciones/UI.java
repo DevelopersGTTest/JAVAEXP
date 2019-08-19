@@ -12,7 +12,7 @@ import java.util.Scanner;
  * @author Hackobo
  */
 public class UI {
-    //USARE SINGLETON PARA EL CONTROLADOR :)
+    //USARE SINGLETON PARA EL CONTROLADOR Y CLASE MAIN :)
    private static UI instance;
    private Scanner sc  = new Scanner(System.in);
    private String nombre, apellido,dpi = "";
@@ -126,19 +126,59 @@ public class UI {
        System.out.println("2. Modificar   ");
        System.out.println("3. Mostrar     ");
        System.out.println("4. Desabilitar ");
-       this.opcion = Integer.parseInt( sc.nextLine());
-       switch( this.opcion ){
-           case 1:
-               this.Alumnos();
+        this.opcion = Integer.parseInt( sc.nextLine());
+        switch( this.opcion ){
+            case 1:
+               System.out.println(" ");
+               System.out.println("[ Agregar ]");
+               System.out.println(" ");
+               System.out.println("Ingresa el nombre del catedratico");
+               this.nombre = sc.nextLine();
+               System.out.println("Ingresa el DPI del catedratico");
+               this.dpi = sc.nextLine();
+               ControladorTodo.getInstance()
+                .agregarCatedratico(this.nombre, this.dpi);
+               System.out.println("");
+               System.out.println("Ingresado Correctamente!!!");
+               System.out.println("");
+               this.MenuGeneral();
            break;
            case 2:
-               this.Catedraticos();
-           break;
+               System.out.println(" [ Modificar ]  ");
+               ControladorTodo.getInstance().mostrarCatedratico();
+               System.out.println("Ingresa el idCatedratico a modificar");
+               this.id = Integer.parseInt( sc.nextLine());
+               System.out.println("Ingresa el nuevo Nombre del catedratico");
+               this.nombre = sc.nextLine();
+               System.out.println("Ingresa el nuevo DPI o el mismo");
+               this.dpi = sc.nextLine();
+               ControladorTodo.getInstance()
+                    .modificarCatedratico(this.id, this.nombre, this.dpi);
+                System.out.println("");
+                System.out.println("Modificado Correctamente!!!");
+                System.out.println("");
+                ControladorTodo.getInstance().mostrarCatedratico();
+                System.out.println("");
+               this.MenuGeneral();
            case 3:
-               this.Cursos();
+               System.out.println(" [ Mostrar ] ");
+               ControladorTodo.getInstance().mostrarCatedratico();
+               System.out.println(" ");
+               this.MenuGeneral();
            break;
            case 4:
-               this.Asignaciones();
+               System.out.println(" [ Deshabilitar ] ");
+               ControladorTodo.getInstance().mostrarCatedratico();
+               System.out.println("Ingresa el idCatedratico a DesHabilitar");
+               this.id = Integer.parseInt( sc.nextLine());
+               ControladorTodo.getInstance().cambiarStatusC(this.id);
+               System.out.println("");
+               System.out.println("Catedratico Deshabilitado  !!!!");
+               System.out.println("");
+               ControladorTodo.getInstance().mostrarCatedratico();
+               this.MenuGeneral();
+               System.out.println("");
+               
            break;
            default:
                System.out.println("Opcion invalida!!!!");

@@ -17,6 +17,7 @@ public class Catedraticos {
     public Catedraticos(String nombreCatedratico, String dpiCatedratico) {
         this.nombreCatedratico = nombreCatedratico;
         this.dpiCatedratico = dpiCatedratico;
+        this.estatus = true;
     }
 
     public String getNombreCatedratico() {
