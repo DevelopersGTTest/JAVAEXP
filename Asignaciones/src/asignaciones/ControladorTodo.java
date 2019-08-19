@@ -111,6 +111,37 @@ public class ControladorTodo {
     * @Cursos
     */
     
+    public void agregarCurso(String nombre){
+        cursos.add( new Cursos(nombre));
+    }
+    
+    public void modificarCurso(int id, String nombre){
+        for(int i=0; i< cursos.size(); i++){
+            if( i == id ){
+                cursos.get(i).setNombreCurso(nombre);
+            }
+        }
+    }
+    
+    public void mostrarCursos(){
+        for(int i=0; i< cursos.size(); i++){
+            System.out.println("---------------------------------------");
+            System.out.println("idCurso :" 
+                + i  );
+            System.out.println("Nombre    :" 
+                + cursos.get(i).getNombreCurso());
+            System.out.println("---------------------------------------");
+        }
+    }
+    
+    public void cambiarStatusCU(int id ){
+        for(int i=0; i< cursos.size(); i++){
+            if( i == id ){
+                cursos.get(i).setEstatus(false); //solo existen dos estatus :)
+            }
+        }
+    }
+    
     /*
     * @Asignaciones
     */

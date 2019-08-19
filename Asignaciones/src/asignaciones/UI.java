@@ -126,8 +126,8 @@ public class UI {
        System.out.println("2. Modificar   ");
        System.out.println("3. Mostrar     ");
        System.out.println("4. Desabilitar ");
-        this.opcion = Integer.parseInt( sc.nextLine());
-        switch( this.opcion ){
+       this.opcion = Integer.parseInt( sc.nextLine());
+       switch( this.opcion ){
             case 1:
                System.out.println(" ");
                System.out.println("[ Agregar ]");
@@ -193,17 +193,53 @@ public class UI {
        System.out.println("4. Desabilitar ");
        this.opcion = Integer.parseInt( sc.nextLine());
        switch( this.opcion ){
-           case 1:
-               this.Alumnos();
+            case 1:
+               System.out.println(" ");
+               System.out.println("[ Agregar ]");
+               System.out.println(" ");
+               System.out.println("Ingresa el nombre del curso");
+               this.nombre = sc.nextLine();
+               ControladorTodo.getInstance()
+               .agregarCurso(this.nombre);
+               System.out.println("");
+               System.out.println("Ingresado Correctamente!!!");
+               System.out.println("");
+               this.MenuGeneral();
            break;
            case 2:
-               this.Catedraticos();
-           break;
+               System.out.println(" [ Modificar ]  ");
+               ControladorTodo.getInstance().mostrarCursos();
+               System.out.println("Ingresa el idCurso a modificar");
+               this.id = Integer.parseInt( sc.nextLine());
+               System.out.println("Ingresa el nuevo Nombre del curso");
+               this.nombre = sc.nextLine();
+               ControladorTodo.getInstance()
+                    .modificarCurso(this.id, this.nombre);
+                System.out.println("");
+                System.out.println("Modificado Correctamente!!!");
+                System.out.println("");
+                ControladorTodo.getInstance().mostrarCursos();
+                System.out.println("");
+               this.MenuGeneral();
            case 3:
-               this.Cursos();
+               System.out.println(" [ Mostrar ] ");
+               ControladorTodo.getInstance().mostrarCursos();
+               System.out.println(" ");
+               this.MenuGeneral();
            break;
            case 4:
-               this.Asignaciones();
+               System.out.println(" [ Deshabilitar ] ");
+               ControladorTodo.getInstance().mostrarCursos();
+               System.out.println("Ingresa el idCurso a DesHabilitar");
+               this.id = Integer.parseInt( sc.nextLine());
+               ControladorTodo.getInstance().cambiarStatusCU(this.id);
+               System.out.println("");
+               System.out.println("Curso Deshabilitado  !!!!");
+               System.out.println("");
+               ControladorTodo.getInstance().mostrarCursos();
+               this.MenuGeneral();
+               System.out.println("");
+               
            break;
            default:
                System.out.println("Opcion invalida!!!!");
@@ -212,10 +248,9 @@ public class UI {
    }
    
    public void Asignaciones(){
-       System.out.println("1. Agregar     ");
-       System.out.println("2. Modificar   ");
-       System.out.println("3. Mostrar     ");
-       System.out.println("4. Desabilitar ");
+       System.out.println("1. Agregar            ");
+       System.out.println("2. Mostrar            ");
+       System.out.println("3. Deshabilitar asign ");
        this.opcion = Integer.parseInt( sc.nextLine());
        switch( this.opcion ){
            case 1:
@@ -226,9 +261,6 @@ public class UI {
            break;
            case 3:
                this.Cursos();
-           break;
-           case 4:
-               this.Asignaciones();
            break;
            default:
                System.out.println("Opcion invalida!!!!");
