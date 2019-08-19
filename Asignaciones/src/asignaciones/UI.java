@@ -246,7 +246,7 @@ public class UI {
                this.MenuGeneral();
        }
    }
-   
+         
    public void Asignaciones(){
        System.out.println("1. Agregar            ");
        System.out.println("2. Mostrar            ");
