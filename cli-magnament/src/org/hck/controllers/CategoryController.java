@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class CategoryController {
     private static CategoryController instance;
     private ArrayList<Category> categoryArray = new ArrayList<Category>();
-    
+            //refe                   
     public static CategoryController getInstance(){
         if( instance == null ){
             instance = new CategoryController();
