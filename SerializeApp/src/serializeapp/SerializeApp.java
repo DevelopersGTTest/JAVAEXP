@@ -3,22 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package files.faker;
+package serializeapp;
+
+import java.util.ArrayList;
 
 /**
  *
  * @author Hackobo
  */
-public class FilesFaker {
+public class SerializeApp {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Maker mk = new Maker();
-        mk.mainMaker();
-        //mk.createFile();
+        Controller  c = new Controller();
+        c.desSerializerDoc();
     }
     
 }
