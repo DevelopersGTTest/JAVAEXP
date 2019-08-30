@@ -346,7 +346,7 @@ public class ControladorTodo {
     }
     
     public void cambiarStatusCU(int id ){
-         try{
+        try{
             FileInputStream file = new FileInputStream("cursos");
             ObjectInputStream ois = new ObjectInputStream(file);
  
@@ -435,11 +435,37 @@ public class ControladorTodo {
        
        
      public void agregarAsignacion(int id ){
-         asign.add(new Asign( id));
+        asign.add(new Asign( id));
+        try {
+            FileOutputStream fos = new FileOutputStream("asignaciones");
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(asign);
+            oos.close();
+            fos.close();
+        }catch (IOException ioe){
+            ioe.printStackTrace();
+        }   
      }
      
      public void mostrarAsign(){
-         for(int i =0; i < asign.size(); i++ ){
+        try{
+            FileInputStream file = new FileInputStream("asignaciones");
+            ObjectInputStream ois = new ObjectInputStream(file);
+ 
+            asign = (ArrayList) ois.readObject();
+ 
+            ois.close();
+            file.close();
+        }catch (IOException ioe){
+            ioe.printStackTrace();
+            return;
+        }catch (ClassNotFoundException c){
+            System.out.println("Class not found");
+            c.printStackTrace();
+            return;
+        }
+        
+        for(int i =0; i < asign.size(); i++ ){
              System.out.println("id :" + i );
              System.out.println(" id Asignacion " + asign.get(i).getIdAlgo() );
          }
