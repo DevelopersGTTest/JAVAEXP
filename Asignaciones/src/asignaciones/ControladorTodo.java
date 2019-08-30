@@ -47,11 +47,37 @@ public class ControladorTodo {
     
     public void modificarAlumno(int id, String nombre, 
     String apellido, int edad){
+          try{
+            FileInputStream file = new FileInputStream("alumnos");
+            ObjectInputStream ois = new ObjectInputStream(file);
+ 
+            alumnos = (ArrayList) ois.readObject();
+ 
+            ois.close();
+            file.close();
+        }catch (IOException ioe){
+            ioe.printStackTrace();
+            return;
+        }catch (ClassNotFoundException c){
+            System.out.println("Class not found");
+            c.printStackTrace();
+            return;
+        }
+          
         for(int i=0; i< alumnos.size(); i++){
             if( i == id ){
                 alumnos.get(i).setNombre(nombre);
                 alumnos.get(i).setApellido(apellido);
                 alumnos.get(i).setEdad(edad);
+                try {
+                    FileOutputStream fos = new FileOutputStream("alumnos");
+                    ObjectOutputStream oos = new ObjectOutputStream(fos);
+                    oos.writeObject(alumnos);
+                    oos.close();
+                    fos.close();
+                }catch (IOException ioe){
+                    ioe.printStackTrace();
+                }      
             }
         }
     }
