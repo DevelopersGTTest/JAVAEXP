@@ -151,7 +151,7 @@ public class ControladorTodo {
     */
     public void agregarCatedratico(String nombre, String dpi){
         catedraticos.add( new Catedraticos(nombre , dpi));
-         try {
+        try {
             FileOutputStream fos = new FileOutputStream("catedraticos");
             ObjectOutputStream oos = new ObjectOutputStream(fos);
             oos.writeObject(catedraticos);
@@ -270,17 +270,69 @@ public class ControladorTodo {
     
     public void agregarCurso(String nombre){
         cursos.add( new Cursos(nombre));
+        try {
+            FileOutputStream fos = new FileOutputStream("cursos");
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(cursos);
+            oos.close();
+            fos.close();
+        }catch (IOException ioe){
+            ioe.printStackTrace();
+        }   
     }
     
     public void modificarCurso(int id, String nombre){
+        try{
+            FileInputStream file = new FileInputStream("cursos");
+            ObjectInputStream ois = new ObjectInputStream(file);
+ 
+            cursos = (ArrayList) ois.readObject();
+ 
+            ois.close();
+            file.close();
+        }catch (IOException ioe){
+            ioe.printStackTrace();
+            return;
+        }catch (ClassNotFoundException c){
+            System.out.println("Class not found");
+            c.printStackTrace();
+            return;
+        }
+         
         for(int i=0; i< cursos.size(); i++){
             if( i == id ){
                 cursos.get(i).setNombreCurso(nombre);
+                 try {
+                    FileOutputStream fos = new FileOutputStream("cursos");
+                    ObjectOutputStream oos = new ObjectOutputStream(fos);
+                    oos.writeObject(cursos);
+                    oos.close();
+                    fos.close();
+                }catch (IOException ioe){
+                    ioe.printStackTrace();
+                }   
             }
         }
     }
     
     public void mostrarCursos(){
+        try{
+            FileInputStream file = new FileInputStream("cursos");
+            ObjectInputStream ois = new ObjectInputStream(file);
+ 
+            cursos = (ArrayList) ois.readObject();
+ 
+            ois.close();
+            file.close();
+        }catch (IOException ioe){
+            ioe.printStackTrace();
+            return;
+        }catch (ClassNotFoundException c){
+            System.out.println("Class not found");
+            c.printStackTrace();
+            return;
+        }
+         
         for(int i=0; i< cursos.size(); i++){
             System.out.println("---------------------------------------");
             System.out.println("idCurso :" 

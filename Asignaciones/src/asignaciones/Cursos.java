@@ -5,11 +5,13 @@
  */
 package asignaciones;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Hackobo
  */
-public class Cursos {
+public class Cursos implements Serializable {
     private String nombreCurso;
     private boolean estatus;
             
