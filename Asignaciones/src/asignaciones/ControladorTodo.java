@@ -86,9 +86,35 @@ public class ControladorTodo {
     }
     
     public void cambiarStatus(int id ){
+         try{
+            FileInputStream file = new FileInputStream("alumnos");
+            ObjectInputStream ois = new ObjectInputStream(file);
+ 
+            alumnos = (ArrayList) ois.readObject();
+ 
+            ois.close();
+            file.close();
+        }catch (IOException ioe){
+            ioe.printStackTrace();
+            return;
+        }catch (ClassNotFoundException c){
+            System.out.println("Class not found");
+            c.printStackTrace();
+            return;
+        }
+         
         for(int i=0; i< alumnos.size(); i++){
             if( i == id ){
                 alumnos.get(i).setEstatus(false); //solo existen dos estatus :)
+                try {
+                    FileOutputStream fos = new FileOutputStream("alumnos");
+                    ObjectOutputStream oos = new ObjectOutputStream(fos);
+                    oos.writeObject(alumnos);
+                    oos.close();
+                    fos.close();
+                }catch (IOException ioe){
+                    ioe.printStackTrace();
+                }       
             }
         }
     }
