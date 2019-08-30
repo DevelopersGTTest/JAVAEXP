@@ -151,18 +151,70 @@ public class ControladorTodo {
     */
     public void agregarCatedratico(String nombre, String dpi){
         catedraticos.add( new Catedraticos(nombre , dpi));
+         try {
+            FileOutputStream fos = new FileOutputStream("catedraticos");
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(catedraticos);
+            oos.close();
+            fos.close();
+        }catch (IOException ioe){
+            ioe.printStackTrace();
+        }   
     }
     
     public void modificarCatedratico(int id, String nombre, String dpi){
+        try{
+            FileInputStream file = new FileInputStream("catedraticos");
+            ObjectInputStream ois = new ObjectInputStream(file);
+ 
+            catedraticos = (ArrayList) ois.readObject();
+ 
+            ois.close();
+            file.close();
+        }catch (IOException ioe){
+            ioe.printStackTrace();
+            return;
+        }catch (ClassNotFoundException c){
+            System.out.println("Class not found");
+            c.printStackTrace();
+            return;
+        }
+        
         for(int i=0; i< catedraticos.size(); i++){
             if( i == id ){
                 catedraticos.get(i).setNombreCatedratico(nombre);
                 catedraticos.get(id).setDpiCatedratico(dpi);
+                try {
+                    FileOutputStream fos = new FileOutputStream("catedraticos");
+                    ObjectOutputStream oos = new ObjectOutputStream(fos);
+                    oos.writeObject(catedraticos);
+                    oos.close();
+                    fos.close();
+                }catch (IOException ioe){
+                    ioe.printStackTrace();
+                } 
             }
         }
     }
     
     public void mostrarCatedratico(){
+        try{
+            FileInputStream file = new FileInputStream("catedraticos");
+            ObjectInputStream ois = new ObjectInputStream(file);
+ 
+            catedraticos = (ArrayList) ois.readObject();
+ 
+            ois.close();
+            file.close();
+        }catch (IOException ioe){
+            ioe.printStackTrace();
+            return;
+        }catch (ClassNotFoundException c){
+            System.out.println("Class not found");
+            c.printStackTrace();
+            return;
+        }
+           
         for(int i=0; i< catedraticos.size(); i++){
             System.out.println("---------------------------------------");
             System.out.println("idCatedratico :" 
@@ -178,9 +230,35 @@ public class ControladorTodo {
     }
     
     public void cambiarStatusC(int id ){
+        try{
+            FileInputStream file = new FileInputStream("catedraticos");
+            ObjectInputStream ois = new ObjectInputStream(file);
+ 
+            catedraticos = (ArrayList) ois.readObject();
+ 
+            ois.close();
+            file.close();
+        }catch (IOException ioe){
+            ioe.printStackTrace();
+            return;
+        }catch (ClassNotFoundException c){
+            System.out.println("Class not found");
+            c.printStackTrace();
+            return;
+        }
+        
         for(int i=0; i< catedraticos.size(); i++){
             if( i == id ){
-                catedraticos.get(i).setEstatus(false); //solo existen dos estatus :)
+                catedraticos.get(i).setEstatus(false); 
+                try {
+                    FileOutputStream fos = new FileOutputStream("catedraticos");
+                    ObjectOutputStream oos = new ObjectOutputStream(fos);
+                    oos.writeObject(catedraticos);
+                    oos.close();
+                    fos.close();
+                }catch (IOException ioe){
+                    ioe.printStackTrace();
+                } 
             }
         }
     }
