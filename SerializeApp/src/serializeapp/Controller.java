@@ -7,14 +7,12 @@ package serializeapp;
 
 import java.util.ArrayList;
 import java.io.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 /**
  *
  * @author Hackobo
  */
 public class Controller {
+    
     private ArrayList<Students> students = new ArrayList();
     
     public void createSerializerDoc(){
@@ -55,7 +53,10 @@ public class Controller {
         
         //Show a data Deserealizer
         for(int i=0; i < students.size(); i++ ){
-            System.out.println("name :" + students.get(i).getName() );
+            System.out.println("name      : " + students.get(i).getName());
+            System.out.println("last-name : " + students.get(i).getLastname());
+            System.out.println("age       : " + students.get(i).getAge());
+            System.out.println("--------------------");
         }
     }
     
