@@ -34,6 +34,15 @@ public class ControladorTodo {
     */
     public void agregarAlumno(String nombre, String apellido, int edad){
         alumnos.add( new Alumnos(nombre, apellido, edad ));
+        try {
+            FileOutputStream fos = new FileOutputStream("alumnos");
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(alumnos);
+            oos.close();
+            fos.close();
+        }catch (IOException ioe){
+            ioe.printStackTrace();
+        }   
     }
     
     public void modificarAlumno(int id, String nombre, 
@@ -48,6 +57,23 @@ public class ControladorTodo {
     }
     
     public void mostrarAlumnos(){
+        try{
+            FileInputStream file = new FileInputStream("alumnos");
+            ObjectInputStream ois = new ObjectInputStream(file);
+ 
+            alumnos = (ArrayList) ois.readObject();
+ 
+            ois.close();
+            file.close();
+        }catch (IOException ioe){
+            ioe.printStackTrace();
+            return;
+        }catch (ClassNotFoundException c){
+            System.out.println("Class not found");
+            c.printStackTrace();
+            return;
+        }
+        
         for(int i=0; i< alumnos.size(); i++){
             System.out.println("---------------------------------------");
             System.out.println("idAlumno :" + i  );
