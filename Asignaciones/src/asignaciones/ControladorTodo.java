@@ -302,7 +302,7 @@ public class ControladorTodo {
         for(int i=0; i< cursos.size(); i++){
             if( i == id ){
                 cursos.get(i).setNombreCurso(nombre);
-                 try {
+                try {
                     FileOutputStream fos = new FileOutputStream("cursos");
                     ObjectOutputStream oos = new ObjectOutputStream(fos);
                     oos.writeObject(cursos);
@@ -346,9 +346,35 @@ public class ControladorTodo {
     }
     
     public void cambiarStatusCU(int id ){
+         try{
+            FileInputStream file = new FileInputStream("cursos");
+            ObjectInputStream ois = new ObjectInputStream(file);
+ 
+            cursos = (ArrayList) ois.readObject();
+ 
+            ois.close();
+            file.close();
+        }catch (IOException ioe){
+            ioe.printStackTrace();
+            return;
+        }catch (ClassNotFoundException c){
+            System.out.println("Class not found");
+            c.printStackTrace();
+            return;
+        }
+         
         for(int i=0; i< cursos.size(); i++){
             if( i == id ){
                 cursos.get(i).setEstatus(false); //solo existen dos estatus :)
+                try {
+                    FileOutputStream fos = new FileOutputStream("cursos");
+                    ObjectOutputStream oos = new ObjectOutputStream(fos);
+                    oos.writeObject(cursos);
+                    oos.close();
+                    fos.close();
+                }catch (IOException ioe){
+                    ioe.printStackTrace();
+                }   
             }
         }
     }
