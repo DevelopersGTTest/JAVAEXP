@@ -15,7 +15,7 @@ public class Alumnos implements Serializable {
     private String nombre;
     private String apellido;
     private int edad;
-    private boolean estatus;
+    private boolean estatus;   
 
     
     public Alumnos(String nombre, String apellido, int edad) {
