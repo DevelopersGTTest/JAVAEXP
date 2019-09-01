@@ -13,7 +13,7 @@ public class Articulos {
     private String nombreArticulo;
     private float precioArtirulo;
     private int stock;
-
+   
     public Articulos(String nombreArticulo, float precioArtirulo, int stock) {
         this.nombreArticulo = nombreArticulo;
         this.precioArtirulo = precioArtirulo;

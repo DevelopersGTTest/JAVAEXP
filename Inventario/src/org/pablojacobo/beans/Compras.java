@@ -4,11 +4,15 @@
  * and open the template in the editor.
  */
 package org.pablojacobo.beans;
-
 /**
  *
  * @author Hackobo
  */
-public class Compras {
+public class Compras extends Articulos {
+
+    public Compras(String nombreArticulo, float precioArtirulo, int stock) {
+        super(nombreArticulo, precioArtirulo, stock);
+    }
+    
     
 }

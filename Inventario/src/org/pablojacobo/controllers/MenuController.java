@@ -19,4 +19,20 @@ public class MenuController {
         return instance;
     }   
     
+    public void menuGeneral(){
+        System.out.println(" == Menu Geenral == ");
+    }
+    
+    public void menuArticulo(){
+        System.out.println(" == Menu Articulo ==  ");
+    }
+    
+    public void menuCompras(){
+        System.out.println(" == Menu Compras == ");
+    }
+    
+    public void menuVentas(){
+        System.out.println(" == Menu Ventas ==  ");
+    }
+    
 }
