@@ -20,6 +20,8 @@ public class Articulos {
         this.stock = stock;
     }
     
+    public Articulos(){}
+    
     public String getNombreArticulo() {
         return nombreArticulo;
     }

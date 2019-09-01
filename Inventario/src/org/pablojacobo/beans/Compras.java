@@ -14,5 +14,4 @@ public class Compras extends Articulos {
         super(nombreArticulo, precioArtirulo, stock);
     }
     
-    
 }

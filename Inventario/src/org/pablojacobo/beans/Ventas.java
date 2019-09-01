@@ -9,6 +9,16 @@ package org.pablojacobo.beans;
  *
  * @author Hackobo
  */
-public class Ventas {
+public class Ventas extends Articulos {
+    private int idArticulo;
+   
+    public int getIdArticulo() {
+        return idArticulo;
+    }
+
+    public void setIdArticulo(int idArticulo) {
+        this.idArticulo = idArticulo;
+    }
+    
     
 }
