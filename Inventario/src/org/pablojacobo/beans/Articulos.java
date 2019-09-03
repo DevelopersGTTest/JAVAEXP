@@ -14,27 +14,25 @@ import java.io.Serializable;
 public class Articulos implements Serializable {
     private String nombreArticulo;
     private float precioArtirulo;
-    private int cantidadArticulo;
     private int totalArticulos = 0;
     private int stock;
 
-    public Articulos(String nombreArticulo, float precioArtirulo, int cantidadArticulo, int stock) {
+    public Articulos(String nombreArticulo, float precioArtirulo, int stock) {
         this.nombreArticulo = nombreArticulo;
         this.precioArtirulo = precioArtirulo;
-        this.cantidadArticulo = cantidadArticulo;
         this.stock = stock;
+        this.totalArticulos = ( (int) precioArtirulo * stock   );
     }
 
-    
-    
-    public int getCantidadArticulo() {
-        return cantidadArticulo;
+  
+
+    public int getTotalArticulos() {
+        return totalArticulos;
     }
 
-    public void setCantidadArticulo(int cantidadArticulo) {
-        this.cantidadArticulo = cantidadArticulo;
+    public void setTotalArticulos(int totalArticulos) {
+        this.totalArticulos = totalArticulos;
     }
-   
 
     
     public Articulos(){}

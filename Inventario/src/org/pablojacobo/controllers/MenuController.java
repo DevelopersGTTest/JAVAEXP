@@ -12,8 +12,8 @@ import java.util.Scanner;
 public class MenuController {
     private static MenuController instance;
     private Scanner sc = new Scanner(System.in);
-    private String nombre = "";
-    private int stock, opt = 0;
+    private String nombre, chainStr = "";
+    private int stock, opt, cantidadVendida = 0;
     private float precio = 0;
     private boolean estaDisponible = false;
      
@@ -55,7 +55,7 @@ public class MenuController {
                 System.out.println(" == AGREGAR == ");
                 System.out.println(" Nombre ");
                 this.nombre = sc.nextLine();
-                System.out.println(" Precio ");
+                System.out.println(" Precio Unitario ");
                 this.precio = Float.parseFloat( sc.nextLine());
                 System.out.println(" Stock ");
                 this.stock = Integer.parseInt( sc.nextLine());
@@ -77,9 +77,16 @@ public class MenuController {
                 this.estaDisponible = ArticulosController.getInstance()
                     .verificarStock(this.opt);
                 if( this.estaDisponible ){
-                
+                    System.out.println(" ¿cuantas unidades desea comprar ? ");
+                    this.cantidadVendida = Integer.parseInt( sc.nextLine());
+                    this.chainStr = ArticulosController
+                        .getInstance()
+                        .descontarStockAplicarCompra(this.opt, this.cantidadVendida);
+                    
+                    System.out.println(" Venta realizada ");
+                    this.menu();
                 }else{
-                    System.out.println("EL PRODUCTO DEBE TENER STOCK");
+                    System.out.println("EL PRODUCTO DEBE NO TIENE STOCK");
                     this.menuArticulo();
                 }
                 

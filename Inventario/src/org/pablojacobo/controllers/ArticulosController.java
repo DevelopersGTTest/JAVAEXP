@@ -29,6 +29,14 @@ public class ArticulosController {
         return instance;
     }
     
+    /*
+      private String nombreArticulo;
+    private float precioArtirulo;
+    private int cantidadArticulo;
+    private int totalArticulos = 0;
+    private int stock;
+    */
+    
     public void addArticulos(String nombre, float precio, int stock ){
         articulos.add( new Articulos(nombre, precio, stock ));
         this.guardarArchivoArticulos(articulos);
@@ -54,7 +62,8 @@ public class ArticulosController {
             System.out.println(" id    : " + i );
             System.out.println(" Nombre: " + articulos.get(i).getNombreArticulo());
             System.out.println(" Precio: " + articulos.get(i).getPrecioArtirulo());
-            System.out.println(" Strock: " + articulos.get(i).getStock() );
+            System.out.println(" Strock: " + articulos.get(i).getStock());
+            System.out.println(" TOTAL: " + articulos.get(i).getTotalArticulos());
             System.out.println("----------------------------");
         }
     }
@@ -110,11 +119,28 @@ public class ArticulosController {
         }
     }
     
-    public String descontarStockAplicarCompra(int idArticulo ){
+    public String descontarStockAplicarCompra(int idArticulo, int cantidadVen ){
+         try{
+            FileInputStream file = new FileInputStream("articulos");
+            ObjectInputStream ois = new ObjectInputStream(file);
+            articulos = (ArrayList) ois.readObject();
+            ois.close();
+            file.close();
+        }catch (IOException ioe){
+            ioe.printStackTrace();
+            //return;
+        }catch (ClassNotFoundException c){
+            System.out.println("Class not found");
+            c.printStackTrace();
+           // return;
+        }
+         
         String chainPipes = "";
+        int tempTotal = 0;
         for(int i=0; i < articulos.size(); i++ ){
             if( i == idArticulo ){
-                articulos.get(i).setStock(-1);
+                tempTotal = ( cantidadVen * (int)articulos.get(i).getPrecioArtirulo());
+                articulos.get(i).setStock(- tempTotal );
                 chainPipes = 
                 articulos.get(i).getNombreArticulo() 
                 + "|" + articulos.get(i).getPrecioArtirulo();
