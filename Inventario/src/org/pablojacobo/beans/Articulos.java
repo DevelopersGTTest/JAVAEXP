@@ -5,11 +5,13 @@
  */
 package org.pablojacobo.beans;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Hackobo
  */
-public class Articulos {
+public class Articulos implements Serializable {
     private String nombreArticulo;
     private float precioArtirulo;
     private int stock;

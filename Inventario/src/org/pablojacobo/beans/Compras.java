@@ -4,11 +4,14 @@
  * and open the template in the editor.
  */
 package org.pablojacobo.beans;
+
+import java.io.Serializable;
+
 /**
  *
  * @author Hackobo
  */
-public class Compras extends Articulos {
+public class Compras extends Articulos implements Serializable {
 
     public Compras(String nombreArticulo, float precioArtirulo, int stock) {
         super(nombreArticulo, precioArtirulo, stock);
