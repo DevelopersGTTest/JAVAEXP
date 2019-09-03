@@ -5,8 +5,10 @@
  */
 package org.pablojacobo.controllers;
 
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import org.pablojacobo.beans.Articulos;
@@ -50,7 +52,31 @@ public class VentasController {
         
         ventas.add( new Ventas(  this.partOne, this.partZero  ));
         this.guardarArchivoVentas(ventas);
-    }   
+    }
+    
+        public void showVentas(){
+        try{
+            FileInputStream file = new FileInputStream("ventas");
+            ObjectInputStream ois = new ObjectInputStream(file);
+            ventas = (ArrayList) ois.readObject();
+            ois.close();
+            file.close();
+        }catch (IOException ioe){
+            ioe.printStackTrace();
+            return;
+        }catch (ClassNotFoundException c){
+            System.out.println("Class not found");
+            c.printStackTrace();
+            return;
+        }
+        
+        for(int i=0; i < ventas.size(); i++){
+            System.out.println(" idVenta-Registro    : " + i );
+            System.out.println(" Nombre: " + ventas.get(i).getNombreProducto());
+            System.out.println(" Total: " +  ventas.get(i).getTotal());
+            System.out.println("----------------------------");
+        }
+    }
        
        
     

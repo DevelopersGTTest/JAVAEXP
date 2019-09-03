@@ -49,6 +49,7 @@ public class MenuController {
         System.out.println(" 1. Agregar ");
         System.out.println(" 2. Mostrar ");
         System.out.println(" 3. Vender  ");
+        System.out.println(" 4. Ver-Ventas ");
         this.opt = Integer.parseInt(  sc.nextLine());
         switch( this.opt ){
             case 1:
@@ -83,7 +84,8 @@ public class MenuController {
                         .getInstance()
                         .descontarStockAplicarCompra(this.opt, this.cantidadVendida);
                     
-                    System.out.println(":::::::: VENTAS " + this.chainStr );
+                    //registrar una venta
+                    VentasController.getInstance().registrarventa(this.chainStr);
                     
                     System.out.println(" Venta realizada ");
                     this.menu();
@@ -92,6 +94,10 @@ public class MenuController {
                     this.menuArticulo();
                 }
                 
+            break;
+            case 4:
+                VentasController.getInstance().showVentas();
+                this.menu();
             break;
             default: 
                 System.out.println(" opcion invalida : ");
