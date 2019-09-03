@@ -3,20 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.pablojacobo.inventario;
-import org.pablojacobo.controllers.MenuController;
+package inv;
+
 /**
  *
  * @author Hackobo
  */
-public class Inventario {
-   
-    /** 
+public class Inv {
+
+    /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        MenuController.getInstance().menu();  
+        Menu m = new Menu();
+        m.menuGeneral();
     }
     
 }

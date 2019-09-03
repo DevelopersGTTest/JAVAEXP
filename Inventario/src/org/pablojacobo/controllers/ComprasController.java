@@ -14,7 +14,6 @@ import org.pablojacobo.beans.Compras;
 public class ComprasController {
     private static ComprasController instance;
     private ArrayList<Compras> compras = new ArrayList();
-    private int index;
     
     public static ComprasController getInstance(){
         if( instance == null ){
@@ -25,14 +24,15 @@ public class ComprasController {
     
     public void addCompra(String nombre, float precio, int stock ){
         compras.add( new Compras(nombre, precio, stock ));
+        System.out.println(" salio aqui===================================================== ");
     }
     
     public void showArticulos(){
-        for(Compras c : compras){
-            System.out.println(" id    : " + this.index++ );
-            System.out.println(" Nombre: " + c.getNombreArticulo());
-            System.out.println(" Precio: " + c.getPrecioArtirulo());
-            System.out.println(" Strock: " + c.getStock());
+        for(int j =0; j < compras.size(); j ++){
+            System.out.println(" idCompra    : " + j );
+            System.out.println(" Nombre: " + compras.get(j).getNombreArticulo() );
+            System.out.println(" Precio: " + compras.get(j).getPrecioArtirulo() );
+            System.out.println(" Strock: " + compras.get(j).getStock());
             System.out.println("----------------------------");
         }
     }
