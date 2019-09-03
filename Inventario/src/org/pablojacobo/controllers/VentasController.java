@@ -31,7 +31,7 @@ public class VentasController {
         return instance;
     }
     
-       public void guardarArchivoArticulos(ArrayList<Ventas> ventas ){
+       public void guardarArchivoVentas(ArrayList<Ventas> ventas ){
          try {
             FileOutputStream fos = new FileOutputStream("ventas");
             ObjectOutputStream oos = new ObjectOutputStream(fos);
@@ -45,9 +45,11 @@ public class VentasController {
        
     public void registrarventa(String chainStr ){
         this.partsChain = chainStr.split("|");
+        this.partZero = this.partsChain[0]; ///nombre producto
+        this.partOne = this.partsChain[1]; //total
         
-        String part1 = parts[0]; // 004
-        String part2 = parts[1]; // 034556
+        ventas.add( new Ventas(  this.partOne, this.partZero  ));
+        this.guardarArchivoVentas(ventas);
     }   
        
        

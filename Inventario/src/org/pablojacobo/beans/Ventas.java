@@ -12,10 +12,10 @@ import java.io.Serializable;
  * @author Hackobo
  */
 public class Ventas implements Serializable {
-    private float total;
+    private String total;
     private String nombreProducto;
 
-    public Ventas(float total, String nombreProducto) {
+    public Ventas(String total, String nombreProducto) {
         this.total = total;
         this.nombreProducto = nombreProducto;
     }
@@ -28,13 +28,15 @@ public class Ventas implements Serializable {
     public void setNombreProducto(String nombreProducto) {
         this.nombreProducto = nombreProducto;
     }
-    
-    public float getTotal() {
+
+    public String getTotal() {
         return total;
     }
 
-    public void setTotal(float total) {
+    public void setTotal(String total) {
         this.total = total;
     }
+    
+    
         
 }
