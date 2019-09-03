@@ -83,6 +83,8 @@ public class MenuController {
                         .getInstance()
                         .descontarStockAplicarCompra(this.opt, this.cantidadVendida);
                     
+                    System.out.println(":::::::: VENTAS " + this.chainStr );
+                    
                     System.out.println(" Venta realizada ");
                     this.menu();
                 }else{

@@ -12,12 +12,10 @@ import java.io.Serializable;
  * @author Hackobo
  */
 public class Ventas implements Serializable {
-    private int idVenta;
     private float total;
     private String nombreProducto;
 
-    public Ventas(int idVenta, float total, String nombreProducto) {
-        this.idVenta = idVenta;
+    public Ventas(float total, String nombreProducto) {
         this.total = total;
         this.nombreProducto = nombreProducto;
     }
@@ -38,14 +36,5 @@ public class Ventas implements Serializable {
     public void setTotal(float total) {
         this.total = total;
     }
-    
-
-    public int getIdVenta() {
-        return idVenta;
-    }
-
-    public void setIdVenta(int idVenta) {
-        this.idVenta = idVenta;
-    }
-    
+        
 }

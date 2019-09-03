@@ -132,21 +132,34 @@ public class ArticulosController {
         }catch (ClassNotFoundException c){
             System.out.println("Class not found");
             c.printStackTrace();
-           // return;
+           //return;
         }
-         
-        String chainPipes = "";
-        int tempTotal = 0;
+        
+        String chainArt = "";
+        int tempTotal, tempStock = 0;
+        int newTotal = 0;
         for(int i=0; i < articulos.size(); i++ ){
             if( i == idArticulo ){
+                //aplicar  nueva cantidad
                 tempTotal = ( cantidadVen * (int)articulos.get(i).getPrecioArtirulo());
-                articulos.get(i).setStock(- tempTotal );
-                chainPipes = 
-                articulos.get(i).getNombreArticulo() 
-                + "|" + articulos.get(i).getPrecioArtirulo();
+                newTotal = ( articulos.get(i).getTotalArticulos() - tempTotal);                
+                articulos.get(i).setTotalArticulos(newTotal);
+                
+                System.out.println("el nuevo articulo es ");
+                //aplicar nuevo stock
+                tempStock = ( articulos.get(i).getStock() - cantidadVen );
+                articulos.get(i).setStock( tempStock );
+                this.guardarArchivoArticulos(articulos);
+                
+                //return str
+                return chainArt = ( articulos.get(i).getNombreArticulo() 
+                        + "|" + tempTotal   );
+                //break;
             }
         }
-        return chainPipes;
+        
+        return chainArt;
+        
     }
     
     
