@@ -96,11 +96,6 @@ public class ArticulosController {
     }
      
    
-    public void trascCompra(String nombre, float precio, int stock){
-        System.out.println("::::::::::::::::::::::::::::::: LEGOOOOOOOOOOOOOOOOOOOOOO :::::::::::::::::::::::::::::::::::");
-        ComprasController.getInstance().addCompra(nombre, precio, stock);
-         System.out.println("::::::::::::::::::::::::::::::: LEGOOOOOOOOOOOOOOOOOOOOOO :::::::::::::::::::::::::::::::::::");
-    }
     
     
     public void guardarArchivoArticulos(ArrayList<Articulos> articulos ){
@@ -114,6 +109,21 @@ public class ArticulosController {
             ioe.printStackTrace();
         }
     }
+    
+    public String descontarStockAplicarCompra(int idArticulo ){
+        String chainPipes = "";
+        for(int i=0; i < articulos.size(); i++ ){
+            if( i == idArticulo ){
+                articulos.get(i).setStock(-1);
+                chainPipes = 
+                articulos.get(i).getNombreArticulo() 
+                + "|" + articulos.get(i).getPrecioArtirulo();
+            }
+        }
+        return chainPipes;
+    }
+    
+    
 
 
 }
