@@ -3,13 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package beans;
+package org.pablojacobo.beans;
+
+import java.io.Serializable;
 
 /**
  *
  * @author Hackobo
  */
-public class Person {
+public class Person implements Serializable {
     private String name_;
     private String username;
 
@@ -17,6 +19,8 @@ public class Person {
         this.name_ = name_;
         this.username = username;
     }
+    
+    public Person(){}
 
     public String getName_() {
         return name_;
