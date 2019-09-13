@@ -19,7 +19,6 @@ public class Tokenizer {
          // Outputs "SGVsbG8="
         KeyGen k = new KeyGen();
         k.generateAlg();
-		//non fail
     }
     
 }
