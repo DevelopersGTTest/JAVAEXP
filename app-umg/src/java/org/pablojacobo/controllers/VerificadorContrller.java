@@ -56,6 +56,8 @@ public class VerificadorContrller extends HttpServlet {
             out.println("<title>Servlet VerificadorContrller</title>");            
             out.println("</head>");
             out.println("<body>");
+            ou
+            
             out.println("<h1>Servlet VerificadorContrller at " + request.getContextPath() + "</h1>");
             out.println("</h1> EL ID QUE BUSCAS ES : <h1>");
             out.println("<p>" + Boolean.toString(this.respuesta)  +"</p>");
