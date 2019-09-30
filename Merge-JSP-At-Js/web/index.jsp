@@ -13,9 +13,11 @@
     </head>
     <body>
         <h1>Simple OAuth </h1>
-        <form method="POST" action="AuthController">
+        <form method="POST" action="AuthController.do">
             <input name="username" type="text" placeholder="Write a username" >
-            <input name="password" type="password" placeholder="Write a password" >
+            <br>
+            <input name="password" type="password" placeholder="Write a password">
+            <br>
             <input type="submit" value="Access" >
         </form>
     </body>

@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Hackobo
  */
-@WebServlet(name = "AuthController", urlPatterns = {"/AuthController"})
+@WebServlet(name = "AuthController", urlPatterns = {"/AuthController.do"})
 public class AuthController extends HttpServlet {
 
     /**

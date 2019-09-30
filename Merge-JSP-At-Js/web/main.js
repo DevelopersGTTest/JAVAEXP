@@ -4,4 +4,11 @@
  * and open the template in the editor.
  */
 
+var username = document.getElementsByName("username");
+var password = document.getElementsByName("password");
 
+function credentialsValids( username, password ){
+    
+    console.log('backkkk')
+    
+}
