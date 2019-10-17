@@ -19,6 +19,25 @@ public class PilaController {
        this.nElements = 0;
    }
    
+   public boolean isEmptyPila(){
+       return this.fooRoot == null;
+   }
+   
+   //pushing simple Obj
+   public void pushObject(String fname, String lname, int age){
+       Foo instanceObj = new Foo(fname, lname, age, fooRoot);
+       fooRoot = instanceObj;
+       nElements++;
+   }
+   
+   //remove last element
+   public Foo pop(){
+       Foo aux = this.fooRoot;
+       this.fooRoot = this.fooRoot.getNext();
+       aux.setNext(null);
+       this.nElements --;
+       return aux;
+   }
    
    
 }
