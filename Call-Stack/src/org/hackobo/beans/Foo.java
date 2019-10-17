@@ -22,6 +22,8 @@ public class Foo {
         this.age = age;
         this.next = next;
     }
+    
+    public Foo(){}
 
     public String getFname() {
         return fname;
