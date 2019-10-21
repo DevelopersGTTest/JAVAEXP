@@ -19,7 +19,7 @@ public class PilaController {
        this.nElements = 0;
    }
    
-   public boolean isEmptyPila(){
+   public boolean isEmptyStack(){
        return this.fooRoot == null;
    }
    
@@ -38,6 +38,29 @@ public class PilaController {
        this.nElements --;
        return aux;
    }
+   
+   //size 
+   public int sizeStack(){
+       return this.nElements;
+   }
+   
+   //Empty All
+   public void dropStack(){
+       while(!this.isEmptyStack()){
+           this.pop();
+       }
+   }
+   
+   public void showFooElements(){
+       Foo aux = this.fooRoot;
+       while(null != aux ){
+           System.out.println(" firstname : " + aux.getFname());
+           System.out.println(" lastname  : " + aux.getLname());
+           System.out.println(" age       : " + aux.getAge());
+       }
+   }
+   
+   
    
    
 }
