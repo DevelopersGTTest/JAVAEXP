@@ -23,6 +23,14 @@ public class Foo {
         this.next = next;
     }
     
+    //list builder
+    public Foo(String fname, String lname, int age){
+        this.fname = fname;
+        this.lname = lname;
+        this.age = age;
+        this.next = null;
+    }
+    
     public Foo(){}
 
     public String getFname() {
