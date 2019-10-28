@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package org.hackobo.controllers;
+import java.util.Collection;
 import org.hackobo.beans.Foo;
 
 /**
@@ -15,6 +16,8 @@ public class ListaController {
     private Foo endFoo;
     private int nElelements;
     
+    //private Collection mu = new Collection();
+    
     public ListaController(){
         this.bootFoo = null;
         this.endFoo = null;
@@ -23,6 +26,12 @@ public class ListaController {
     
     public boolean isEmptyList(){
         return this.bootFoo == null;
+    }
+    
+    public <T> void saveData(T[] a, Collection<T> c ){
+        for(T o : a ){
+            System.out.println("");
+        }
     }
     
     /*public void push(String fname, String lname, int age ){
