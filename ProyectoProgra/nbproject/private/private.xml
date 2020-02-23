@@ -3,7 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Ronald%20Galicia/Documents/NetBeansProjects/ProyectoProgra/src/java/org/interfaces/CrudUsuarioseg.java</file>
+            <file>file:/C:/JAVA/JAVAEXP/ProyectoProgra/src/java/org/dao/SedDao.java</file>
+            <file>file:/C:/JAVA/JAVAEXP/ProyectoProgra/src/java/org/controller/UserController.java</file>
+            <file>file:/C:/JAVA/JAVAEXP/ProyectoProgra/src/java/org/interfaces/CrudUsuarioseg.java</file>
+            <file>file:/C:/JAVA/JAVAEXP/ProyectoProgra/src/java/org/models/SEG.java</file>
+            <file>file:/C:/JAVA/JAVAEXP/ProyectoProgra/src/java/org/controller/Controlador.java</file>
+            <file>file:/C:/JAVA/JAVAEXP/ProyectoProgra/src/java/org/config/Conexion.java</file>
         </group>
     </open-files>
 </project-private>
