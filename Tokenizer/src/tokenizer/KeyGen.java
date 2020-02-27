@@ -12,9 +12,7 @@ import java.util.Base64;
  * @author Hackobo
  */
 public class KeyGen {
-    
-  
-    
+
     public void generateAlg(){
        String encoded = Base64.getEncoder().encodeToString(this.data.getBytes());
         System.out.println(" hashh : " + encoded  );   // Outputs "SGVsbG8="
