@@ -13,7 +13,7 @@ import java.util.Base64;
  */
 public class KeyGen {
     
-    private String data = "fe7U3Z8H" + "88801078" + "464748" + "ORD_33301233_1568118146745" + "000000000100" + "320"; 
+  
     
     public void generateAlg(){
        String encoded = Base64.getEncoder().encodeToString(this.data.getBytes());
