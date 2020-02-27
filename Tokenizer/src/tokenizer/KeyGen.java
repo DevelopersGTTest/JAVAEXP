@@ -17,7 +17,7 @@ public class KeyGen {
     
     public void generateAlg(){
        String encoded = Base64.getEncoder().encodeToString(this.data.getBytes());
-        System.out.println("el codigo es : " + encoded  );   // Outputs "SGVsbG8="
+        System.out.println(" hashh : " + encoded  );   // Outputs "SGVsbG8="
     }
     
 }
