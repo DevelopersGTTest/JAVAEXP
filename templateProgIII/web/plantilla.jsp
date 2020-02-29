@@ -41,7 +41,7 @@
                             <a href="" class="dropdown-toggle" data-toggle="dropdown"  id="A1">Mantenimientos<b class="caret"></b></a>
                             <ul id="Ul2" class="dropdown-menu" >
                                 <li> 
-                                    <a href="ControllerCliente?accion=read" id="A2">Consulta Cliente</a>
+                                    <a href="./cliente/WebConsultaCliente.jsp" id="A2">Consulta Cliente</a>
                                 </li>                      
                             </ul>
                          </li>                         
