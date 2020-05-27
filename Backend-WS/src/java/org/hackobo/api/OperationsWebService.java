@@ -16,7 +16,7 @@ import org.hackobo.dao.OperationDao;
  */
 @WebService(serviceName = "OperationsWebService")
 public class OperationsWebService {
-    
+    //setting dao config
     private OperationDao operationDao = new OperationDao();
     private float resultDao; 
     
