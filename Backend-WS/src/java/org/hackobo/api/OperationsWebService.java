@@ -71,6 +71,7 @@ public class OperationsWebService {
             .multiNumbers(Float.parseFloat(n1) , Float.parseFloat(n2));
         return  this.resultDao;
     }
-
+	
+	//cuadratic form
     
 }
