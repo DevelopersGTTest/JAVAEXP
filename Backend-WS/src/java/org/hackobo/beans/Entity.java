@@ -10,6 +10,7 @@ package org.hackobo.beans;
  * @author Pablo Jacobo
  */
 public class Entity {
+	//** simple mood **/
     private float n1;
     private float n2;
 
