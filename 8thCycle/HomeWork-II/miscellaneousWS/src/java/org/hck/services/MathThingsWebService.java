@@ -9,9 +9,10 @@ import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 
+import org.hck.Helpers.MathHelper;
 /**
  *
- * @author 50241
+ * @author hackobo
  */
 @WebService(serviceName = "MathThingsWebService")
 public class MathThingsWebService {
@@ -22,5 +23,20 @@ public class MathThingsWebService {
     @WebMethod(operationName = "hello")
     public String hello(@WebParam(name = "name") String txt) {
         return "Hello " + txt + " !";
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "mathOperation")
+    public float mathOperation( 
+            @WebParam(name = "numerOne") float numerOne, 
+            @WebParam(name = "numberTwo") float numberTwo, 
+            @WebParam(name = "typeOperation") String sign
+    ) {
+        
+        MathHelper mathHelper = new MathHelper();  
+        float resultOperation = mathHelper.operation(numerOne, numberTwo, sign);
+        return resultOperation;
     }
 }
