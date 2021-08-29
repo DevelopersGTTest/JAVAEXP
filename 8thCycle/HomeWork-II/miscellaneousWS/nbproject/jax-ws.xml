@@ -4,6 +4,9 @@
     <service name="MathThingsWebService">
       <implementation-class>org.hck.services.MathThingsWebService</implementation-class>
     </service>
+    <service name="ArrayWebService">
+      <implementation-class>org.hck.services.ArrayWebService</implementation-class>
+    </service>
   </services>
   <clients/>
 </jax-ws>
