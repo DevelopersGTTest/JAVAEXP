@@ -50,4 +50,33 @@ public class MathThingsWebService {
         int result = mathHelper.factorial(number);
         return result;
     }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "multiploOfN")
+    public String multiploOfN(
+        @WebParam(name = "numberOne") int numberOne, 
+        @WebParam(name = "numberTwo") int numberTwo
+    ) {
+        //TODO write your implementation code here:
+        MathHelper mathHelper = new MathHelper();  
+        String result = mathHelper.isMultiple(numberOne, numberTwo);
+        return result;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "cuadraticFormula")
+    public String cuadraticFormula(
+        @WebParam(name = "a") int a, 
+        @WebParam(name = "b") int b, 
+        @WebParam(name = "c") int c
+    ) {
+        //TODO write your implementation code here:
+        MathHelper mathHelper = new MathHelper();  
+        String result =  mathHelper.cuadraticFormula(a, b, c);
+        return  result;
+    }
 }
