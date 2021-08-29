@@ -5,7 +5,9 @@
  */
 package org.hck.services;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
@@ -34,8 +36,8 @@ public class ArrayWebService {
         @WebParam(name = "elementName") String elementName
     ) {
         //TODO write your implementation code here:
-        ElementsMock elements = new ElementsMock();
-        Optional<String> findWord = elements.elements()
+        ElementsMock words = new ElementsMock();
+        Optional<String> findWord = words.elements()
             .stream()
             .filter( e -> e.equals( elementName))
             .findFirst();
@@ -43,6 +45,23 @@ public class ArrayWebService {
         return (findWord.isPresent()) 
             ? " elemento encontrado " 
             : "elemento NO encontrado";
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "startAtLetter")
+    public List<String> startAtLetter(
+        @WebParam(name = "letter") String letter
+    ) {
+        //TODO write your implementation code here:
+        ElementsMock words = new ElementsMock();
+        List<String> matchedWordsStartAt = words.elements()
+            .stream()
+            .filter( e -> e.startsWith(letter))
+            .collect(Collectors.toList());
+        
+        return  matchedWordsStartAt;
     }
     
     
