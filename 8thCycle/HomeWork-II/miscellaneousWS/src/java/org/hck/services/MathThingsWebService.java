@@ -9,7 +9,7 @@ import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 
-import org.hck.Helpers.MathHelper;
+import org.hck.helper.MathHelper;
 /**
  *
  * @author hackobo

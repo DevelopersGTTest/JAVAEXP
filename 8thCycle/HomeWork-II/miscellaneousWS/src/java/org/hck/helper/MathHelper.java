@@ -3,7 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.hck.Helpers;
+package org.hck.helper;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
@@ -18,26 +21,15 @@ public class MathHelper {
      * @param numberTwo the entity to save
      * @return value entity
      */
-    
     public float operation(float numberOne, float numberTwo, String type ) {
-        float result = 0;
+        Map<String, Object> map = new HashMap<String, Object>();
         
-        switch( type ) {
-            case "+":
-                result = numberOne + numberTwo;
-            break;
-            case "-":
-                result = numberOne - numberTwo;
-            break;
-            case "/":
-                result = numberOne / numberTwo;
-            break;
-            case "*":
-                result = numberOne * numberTwo;
-            default:
-                System.out.println("bad operation");
-        }
-        
+        map.put("+", ( numberOne + numberTwo ));
+        map.put("-", ( numberOne - numberTwo ));
+        map.put("/", ( numberOne / numberTwo ));
+        map.put("*", ( numberOne * numberTwo ));
+       
+        float result = Float.parseFloat( map.get(type).toString());
         return result;
     }
     
@@ -47,13 +39,22 @@ public class MathHelper {
      * @param number to get factorial
      * @return factorial number
      */
-    
     public int factorial(int number ) {
         int factorial = 1;
         for (int j = 1; j <= number; j++ ) {
             factorial *= j;
         }
         return factorial;
+    }
+    
+    /**
+     * multiple of n
+     * @param numberOne selected
+     * @param numberTwo selected
+     * @return isMultiple
+     */
+    public String isMultiple(int numberOne, int numberTwo) {
+        return "epic...";
     }
     
 }
