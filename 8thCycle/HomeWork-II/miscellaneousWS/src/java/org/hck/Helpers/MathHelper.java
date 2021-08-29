@@ -11,7 +11,15 @@ package org.hck.Helpers;
  */
 public class MathHelper {
     
-    public  float operation(float numberOne, float numberTwo, String type ) {
+   /**
+     * Process operation
+     *
+     * @param numberOne the entity to save
+     * @param numberTwo the entity to save
+     * @return value entity
+     */
+    
+    public float operation(float numberOne, float numberTwo, String type ) {
         float result = 0;
         
         switch( type ) {
@@ -32,4 +40,20 @@ public class MathHelper {
         
         return result;
     }
+    
+    /**
+     * Factorial
+     *
+     * @param number to get factorial
+     * @return factorial number
+     */
+    
+    public int factorial(int number ) {
+        int factorial = 1;
+        for (int j = 1; j <= number; j++ ) {
+            factorial *= j;
+        }
+        return factorial;
+    }
+    
 }

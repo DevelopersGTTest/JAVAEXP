@@ -34,9 +34,20 @@ public class MathThingsWebService {
             @WebParam(name = "numberTwo") float numberTwo, 
             @WebParam(name = "typeOperation") String sign
     ) {
-        
+        //TODO write your implementation code here:
         MathHelper mathHelper = new MathHelper();  
         float resultOperation = mathHelper.operation(numerOne, numberTwo, sign);
         return resultOperation;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "factorial")
+    public int factorial(@WebParam(name = "number") int number) {
+        //TODO write your implementation code here:
+        MathHelper mathHelper = new MathHelper();  
+        int result = mathHelper.factorial(number);
+        return result;
     }
 }
