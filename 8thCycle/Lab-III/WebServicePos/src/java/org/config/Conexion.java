@@ -18,8 +18,8 @@ public class Conexion {
     private  Connection coneccion=null;    
     private ResultSet resultado = null;
     //Cadena de Conexion
-    String stringConnectionUrl = "jdbc:sqlserver://DESKTOP-IHT13TT\\SQLEXPRESS2014:1433;" +
-                                "databaseName=SISTEMA;";
+    String stringConnectionUrl = "jdbc:sqlserver://LAPTOP-8AU1D8AN\\SQLEXPRESS:1433;" +
+                                "databaseName=Sistema-flx;";
     //Driver o controlador JDBC
     String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
     

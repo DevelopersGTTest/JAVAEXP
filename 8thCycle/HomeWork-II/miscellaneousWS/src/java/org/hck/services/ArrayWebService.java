@@ -41,7 +41,7 @@ public class ArrayWebService {
             .stream()
             .filter( e -> e.equals( elementName))
             .findFirst();
-                
+        
         return (findWord.isPresent()) 
             ? " elemento encontrado " 
             : "elemento NO encontrado";

@@ -68,7 +68,7 @@ public class DaoCliente implements CRUDCliente{
     @Override
     public boolean insertar(Cliente cliente) {
          //Se prepara la sentencia SQL a ejecutar en la BD
-        strSql = "INSERT INTO POS.CLIENTE (ID_CLIENTE, NOMBRE, APELLIDO, NIT, TELEFONO, DIRECCION) "
+        strSql = "INSERT IN (ID_CLIENTE, NOMBRE, APELLIDO, NIT, TELEFONO, DIRECCION) "
                 + "VALUES ( (SELECT ISNULL(MAX(ID_CLIENTE),0) + 1 FROM POS.CLIENTE), " +                   
                  "'" + cliente.getNombre() + "', " +                 
                 "'" + cliente.getApellido()+ "', " +       
