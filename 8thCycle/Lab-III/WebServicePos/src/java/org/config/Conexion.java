@@ -14,6 +14,8 @@ import java.util.logging.Logger;
 
 public class Conexion {    
     
+    // verify this issue = https://stackoverflow.com/questions/18841744/jdbc-connection-failed-error-tcp-ip-connection-to-host-failed
+    
     private PreparedStatement preparar = null;    
     private  Connection coneccion=null;    
     private ResultSet resultado = null;
