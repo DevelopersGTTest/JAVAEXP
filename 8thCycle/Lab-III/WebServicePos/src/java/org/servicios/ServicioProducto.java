@@ -48,6 +48,62 @@ public class ServicioProducto {
         List<Producto> productoList = daoProducto.listarProducto();
         return productoList;
     }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "addTipoProducto")
+    public boolean addTipoProducto(
+        @WebParam(name = "descripcion") String descripcion, 
+        @WebParam(name = "estado") int estado
+    ) {
+        TipoProducto tp = new TipoProducto();
+        tp.setDescripcion(descripcion);
+        tp.setEstado(estado);
+        
+        DaoProducto daoProducto = new DaoProducto();
+        return  daoProducto.insertarTipoProducto(tp);
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "addProducto")
+    public boolean addProducto(
+        @WebParam(name = "idTipoProducto") int idTipoProducto, 
+        @WebParam(name = "descripcion") String descripcion, 
+        @WebParam(name = "precio") float precio, 
+        @WebParam(name = "existencia") int existencia, 
+        @WebParam(name = "estado") int estado
+    ) {
+        Producto p = new Producto();
+        p.setDescripcion(descripcion);
+        p.setEstado(estado);
+        p.setExistencia(existencia);
+        p.setIdProducto(idTipoProducto);
+        p.setPrecio(precio);
+        
+        DaoProducto daoProducto = new DaoProducto();
+        return  daoProducto.insertarProducto(p);
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "ModificarProducto")
+    public String ModificarProducto(@WebParam(name = "idProducto") String idProducto, @WebParam(name = "idTipoProducto") String idTipoProducto, @WebParam(name = "descripcion") String descripcion, @WebParam(name = "precio") String precio, @WebParam(name = "existencia") String existencia, @WebParam(name = "estado") String estado) {
+        //TODO write your implementation code here:
+        return null;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "modificarTipoProducto")
+    public String modificarTipoProducto(@WebParam(name = "idTipoProducto") String idTipoProducto, @WebParam(name = "descripcion") String descripcion, @WebParam(name = "estado") String estado) {
+        //TODO write your implementation code here:
+        return null;
+    }
     
     
     

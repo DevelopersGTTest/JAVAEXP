@@ -102,12 +102,44 @@ public class DaoProducto implements CRUDProducto {
 
     @Override
     public boolean insertarProducto(Producto producto) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        strSql = "INSERT INTO POS.PRODUCTO  "
+                + "VALUES((SELECT ISNULL(MAX(ID_PRODUCTO),0) + 1 FROM POS.PRODUCTO), "
+                + ""+ producto.getIdTipoProducto() +", '"+ producto.getDescripcion() +"', "
+                + ""+ producto.getPrecio()+", "+ producto.getExistencia() +", "
+                + ""+ producto.getEstado() +" )";
+        
+        try {
+            conexion.open();
+            respuesta = conexion.executeSql(strSql);
+            conexion.close();
+             
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DaoCliente.class.getName()).log(Level.SEVERE, null, ex);     
+            return false;
+        } catch(Exception ex){
+            Logger.getLogger(DaoCliente.class.getName()).log(Level.SEVERE, null, ex);            
+        }
+        return respuesta;
     }
 
     @Override
     public boolean insertarTipoProducto(TipoProducto tipoProducto) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        strSql = "INSERT INTO POS.TIPO_PRODUCTO  VALUES "
+                + "((SELECT ISNULL(MAX(ID_TIPO_PRODUCTO),0) + 1 FROM POS.TIPO_PRODUCTO), "
+                + "'"+ tipoProducto.getDescripcion() +"', "+ tipoProducto.getEstado() +"  )";
+        
+        try {
+            conexion.open();
+            respuesta = conexion.executeSql(strSql);
+            conexion.close();
+             
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DaoCliente.class.getName()).log(Level.SEVERE, null, ex);     
+            return false;
+        } catch(Exception ex){
+            Logger.getLogger(DaoCliente.class.getName()).log(Level.SEVERE, null, ex);            
+        }
+        return respuesta;
     }
     
 }
