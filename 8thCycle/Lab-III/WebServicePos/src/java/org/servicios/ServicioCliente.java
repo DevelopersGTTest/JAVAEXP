@@ -49,4 +49,28 @@ public class ServicioCliente {
         return daoCliente.insertar(cliente);
         
     }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "modificarCliente")
+    public boolean modificarCliente(
+            @WebParam(name = "idCliente") int idCliente, 
+            @WebParam(name = "nombre") String nombre, 
+            @WebParam(name = "apellido") String apellido, 
+            @WebParam(name = "nit") String nit, 
+            @WebParam(name = "direccion") String direccion,
+             @WebParam(name = "telefono") String telefono
+    ) {
+        Cliente cliente = new Cliente();
+        cliente.setIdCliente(idCliente);
+        cliente.setNombre(nombre);
+        cliente.setApellido(apellido);
+        cliente.setNit(nit);
+        cliente.setDireccion(direccion);
+        cliente.setTelefono(telefono);
+        
+        DaoCliente daoCliente = new DaoCliente();
+        return daoCliente.modificar(cliente);
+    }
 }

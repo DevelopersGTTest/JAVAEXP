@@ -67,7 +67,6 @@ public class DaoCliente implements CRUDCliente{
 
     @Override
     public boolean insertar(Cliente cliente) {
-         //Se prepara la sentencia SQL a ejecutar en la BD
         strSql = "INSERT  INTO  POS.CLIENTE(ID_CLIENTE, NOMBRE, APELLIDO, NIT, TELEFONO, DIRECCION) "
                 + "VALUES ( (SELECT ISNULL(MAX(ID_CLIENTE),0) + 1 FROM POS.CLIENTE), " +                   
                  "'" + cliente.getNombre() + "', " +                 
@@ -78,11 +77,8 @@ public class DaoCliente implements CRUDCliente{
                   ")";
 
         try {
-            //se abre una conexión hacia la BD
             conexion.open();
-            //Se ejecuta la instrucción y retorna si la ejecución fue satisfactoria
             respuesta = conexion.executeSql(strSql);
-            //Se cierra la conexión hacia la BD
             conexion.close();
              
         } catch (ClassNotFoundException ex) {
@@ -95,8 +91,27 @@ public class DaoCliente implements CRUDCliente{
     }
 
     @Override
-    public boolean modificar(Cliente cliente) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean modificar(Cliente cl) {
+        //Se prepara la sentencia SQL a ejecutar en la BD
+        strSql =  "UPDATE POS.CLIENTE SET NOMBRE = '"+ cl.getNombre()  +"',"
+                + " APELLIDO = '"+ cl.getApellido() +"',"
+                + " NIT = '"+ cl.getNit() +"', "
+                + "TELEFONO = '"+ cl.getTelefono() +"', "
+                + "DIRECCION = '"+ cl.getDireccion() +"'"
+                + " WHERE ID_CLIENTE = " + cl.getIdCliente();
+
+        try {
+            conexion.open();
+            respuesta = conexion.executeSql(strSql);
+            conexion.close();
+             
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DaoCliente.class.getName()).log(Level.SEVERE, null, ex);     
+            return false;
+        } catch(Exception ex){
+            Logger.getLogger(DaoCliente.class.getName()).log(Level.SEVERE, null, ex);            
+        }
+        return respuesta;
     }
 
     @Override
