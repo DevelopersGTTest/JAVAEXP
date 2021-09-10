@@ -16,6 +16,16 @@ public class Producto {
     private float precio;
     private int existencia;
     private int estado;
+    private String tipoProducto;
+
+    public String getTipoProducto() {
+        return tipoProducto;
+    }
+
+    public void setTipoProducto(String tipoProducto) {
+        this.tipoProducto = tipoProducto;
+    }
+    
 
     public int getIdProducto() {
         return idProducto;

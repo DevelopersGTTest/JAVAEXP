@@ -61,15 +61,29 @@ public class DaoProducto implements CRUDProducto {
     public List listarProducto() {
         ArrayList<Producto> productList = new ArrayList<>();
         try {            
-            strSql = "SELECT * FROM POS.PRODUCTO";
+            strSql = "SELECT \n" +
+                "	p.ID_PRODUCTO,  \n" +
+                "	POS.TIPO_PRODUCTO.DESCRIPCION AS 'TIPO_PRODUCTO',  \n" +
+                "	p.DESCRIPCION, \n" +
+                "	p.PRECIO, \n" +
+                "	p.EXISTENCIA, \n" +
+                "	p.ESTADO  \n" +
+                "FROM \n" +
+                "	POS.PRODUCTO p\n" +
+                "INNER JOIN  \n" +
+                "	POS.TIPO_PRODUCTO \n" +
+                "ON \n" +
+                "	p.ID_TIPO_PRODUCTO = POS.TIPO_PRODUCTO.ID_TIPO_PRODUCTO ";
+            
             conexion.open();
             rs = conexion.executeQuery(strSql);                             
-            
+              
             while (rs.next()) {
                 Producto producto = new Producto();
-                producto.setIdTipoProducto(rs.getInt("ID_TIPO_PRODUCTO"));
                 producto.setIdProducto(rs.getInt("ID_PRODUCTO"));
+                producto.setTipoProducto(rs.getString("TIPO_PRODUCTO"));
                 producto.setDescripcion(rs.getString("DESCRIPCION"));
+                producto.setExistencia(rs.getInt("PRECIO"));
                 producto.setExistencia(rs.getInt("EXISTENCIA"));
                 producto.setEstado(rs.getInt("ESTADO"));
                 productList.add(producto);
@@ -83,7 +97,7 @@ public class DaoProducto implements CRUDProducto {
             Logger.getLogger(DaoCliente.class.getName()).log(Level.SEVERE, null, ex);            
         }
         
-         return productList ;
+         return productList;
     }
 
     @Override

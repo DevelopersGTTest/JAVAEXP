@@ -5,9 +5,13 @@
  */
 package org.servicios;
 
+import java.util.List;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
+import org.dao.DaoProducto;
+import org.modelos.Producto;
+import org.modelos.TipoProducto;
 
 /**
  *
@@ -28,18 +32,21 @@ public class ServicioProducto {
      * Web service operation
      */
     @WebMethod(operationName = "getTipoProductos")
-    public String getTipoProductos() {
-        //TODO write your implementation code here:
-        return null;
+    public List<TipoProducto> getTipoProductos() {
+        
+        DaoProducto daoProducto = new DaoProducto();
+        List<TipoProducto> tipoProductList = daoProducto.listarTipoProducto();
+        return tipoProductList;
     }
 
     /**
      * Web service operation
      */
     @WebMethod(operationName = "getProductos")
-    public String getProductos() {
-        //TODO write your implementation code here:
-        return null;
+    public List<Producto> getProductos() {
+        DaoProducto daoProducto = new DaoProducto();
+        List<Producto> productoList = daoProducto.listarProducto();
+        return productoList;
     }
     
     

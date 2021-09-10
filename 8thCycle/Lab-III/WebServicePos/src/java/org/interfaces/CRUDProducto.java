@@ -6,7 +6,6 @@
 package org.interfaces;
 
 import java.util.List;
-import org.modelos.Cliente;
 import org.modelos.Producto;
 import org.modelos.TipoProducto;
 
